@@ -1,36 +1,33 @@
 "use client";
-import { useState } from "react";
 
 export default function Contact() {
-  const [status, setStatus] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("Sending...");
-    setTimeout(() => setStatus("Thank you! Your message has been sent."), 1200);
-  };
-
   return (
-    <main style={{
-      minHeight: "100vh",
-      background: "#fff",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      paddingTop: "5rem",
-      fontFamily: "'Segoe UI', Arial, sans-serif"
-    }}>
-      <h1 style={{
-        color: "#ff69b4",
-        fontSize: "2.8rem",
-        fontWeight: "bold",
-        marginBottom: "2rem",
-        letterSpacing: "0.05em"
-      }}>
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "#fff",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        paddingTop: "5rem",
+        fontFamily: "'Segoe UI', Arial, sans-serif",
+      }}
+    >
+      <h1
+        style={{
+          color: "#ff69b4",
+          fontSize: "2.8rem",
+          fontWeight: "bold",
+          marginBottom: "2rem",
+          letterSpacing: "0.05em",
+        }}
+      >
         Contact
       </h1>
       <form
-        onSubmit={handleSubmit}
+        name="contact"
+        method="POST"
+        data-netlify="true"
         style={{
           background: "#fff",
           borderRadius: "1rem",
@@ -41,9 +38,11 @@ export default function Contact() {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          gap: "1.2rem"
+          gap: "1.2rem",
         }}
       >
+        <input type="hidden" name="form-name" value="contact" />
+
         <input
           type="text"
           name="name"
@@ -53,7 +52,7 @@ export default function Contact() {
             padding: "0.8rem",
             borderRadius: "0.5rem",
             border: "1px solid #ccc",
-            fontSize: "1rem"
+            fontSize: "1rem",
           }}
         />
         <input
@@ -65,7 +64,7 @@ export default function Contact() {
             padding: "0.8rem",
             borderRadius: "0.5rem",
             border: "1px solid #ccc",
-            fontSize: "1rem"
+            fontSize: "1rem",
           }}
         />
         <textarea
@@ -78,7 +77,7 @@ export default function Contact() {
             borderRadius: "0.5rem",
             border: "1px solid #ccc",
             fontSize: "1rem",
-            resize: "vertical"
+            resize: "vertical",
           }}
         />
         <button
@@ -91,16 +90,11 @@ export default function Contact() {
             padding: "0.9rem",
             fontSize: "1.1rem",
             fontWeight: "bold",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
           Send Message
         </button>
-        {status && (
-          <div style={{ color: "#ff69b4", marginTop: "0.5rem", textAlign: "center" }}>
-            {status}
-          </div>
-        )}
       </form>
     </main>
   );
