@@ -59,6 +59,7 @@ function NavBar({ children }) {
                 onClose={handleMenuClose}
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                 transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                disableScrollLock={true}
               >
                 <MenuItem onClick={handleMenuClose} component="a" href="/">
                   Portfolio
