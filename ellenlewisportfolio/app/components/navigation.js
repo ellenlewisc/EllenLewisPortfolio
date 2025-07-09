@@ -45,28 +45,8 @@ function NavBar({ children }) {
               >
                 About
               </Button>
-              <Button
-                color="inherit"
-                aria-controls={adminAnchorEl ? 'admin-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={adminAnchorEl ? 'true' : undefined}
-                onClick={handleAdminOpen}
-              >
-                More
-              </Button>
-              <Menu
-                id="admin-menu"
-                anchorEl={adminAnchorEl}
-                open={Boolean(adminAnchorEl)}
-                onClose={handleAdminClose}
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} 
-                transformOrigin={{ vertical: 'top', horizontal: 'right' }} 
-                disableScrollLock={true} // prevents layout shift
-              >
-                <MenuItem onClick={handleAdminClose} component="a" href="/">
-                    Portfolio 
-                </MenuItem>
-              </Menu>
+          
+
             </Box>
           ) : (
             <>
