@@ -50,7 +50,7 @@ function NavBar({ children }) {
           {isDesktop ? (
             <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
               <Button
-                href="/entries/create"
+                href="/about"
                 color="inherit"
               >
                 About
@@ -63,17 +63,18 @@ function NavBar({ children }) {
                 aria-expanded={adminAnchorEl ? 'true' : undefined}
                 onClick={handleAdminOpen}
               >
-                Admin
+                More
               </Button>
               <Menu
                 id="admin-menu"
                 anchorEl={adminAnchorEl}
                 open={Boolean(adminAnchorEl)}
                 onClose={handleAdminClose}
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} // changed from 'left' to 'right'
+                transformOrigin={{ vertical: 'top', horizontal: 'right' }} // changed from 'left' to 'right'
+                disableScrollLock={true} // prevents layout shift
               >
-                <MenuItem onClick={handleAdminClose} component="a" href="/entries">
+                <MenuItem onClick={handleAdminClose} component="a" href="/">
                     Portfolio 
                 </MenuItem>
               </Menu>
@@ -93,7 +94,7 @@ function NavBar({ children }) {
                 <MenuItem onClick={handleMenuClose} component="a" href="/entries">
                   <ListIcon sx={{ marginRight: 1 }} />Portfolio
                 </MenuItem>
-                <MenuItem onClick={handleMenuClose} component="a" href="/entries/create">
+                <MenuItem onClick={handleMenuClose} component="a" href="/about">
                   <AddIcon sx={{ marginRight: 1 }} />About
                 </MenuItem>
               </Menu>
