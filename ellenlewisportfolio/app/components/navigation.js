@@ -45,8 +45,12 @@ function NavBar({ children }) {
               >
                 About
               </Button>
-          
-
+              <Button
+                href="/contact"
+                color="inherit"
+              >
+                Contact
+              </Button>
             </Box>
           ) : (
             <>
@@ -66,6 +70,9 @@ function NavBar({ children }) {
                 </MenuItem>
                 <MenuItem onClick={handleMenuClose} component="a" href="/about">
                   About
+                </MenuItem>
+                <MenuItem onClick={handleMenuClose} component="a" href="/contact">
+                  Contact
                 </MenuItem>
               </Menu>
             </>
