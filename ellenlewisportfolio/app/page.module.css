@@ -1,26 +1,19 @@
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
   min-height: 100vh;
-  background: #ff69b4; /* Pink background */
+  background: #fff; /* White background */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .centerBox {
-  background: #fff;
-  color: #ff69b4;
+  background: #ff69b4; /* Pink box */
+  color: #fff;
   padding: 3rem 6rem;
   border-radius: 2rem;
   box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-  border: 4px solid #fff; /* White border for extra emphasis */
-  font-size: 4rem; /* Bigger font */
+  border: 4px solid #ff69b4;
+  font-size: 4rem;
   font-weight: bold;
   letter-spacing: 0.1em;
   text-align: center;

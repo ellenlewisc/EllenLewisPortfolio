@@ -9,18 +9,8 @@ import {
   IconButton,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import AppsIcon from '@mui/icons-material/Apps';
-import ListIcon from "@mui/icons-material/List";
-import AddIcon from "@mui/icons-material/Add";
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 import { useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import FlightIcon from '@mui/icons-material/Flight';
-import GroupsIcon from '@mui/icons-material/Groups';
-import CategoryIcon from '@mui/icons-material/Category';
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 export default function TopNav({ children }) {
   return (
@@ -57,7 +47,6 @@ function NavBar({ children }) {
               </Button>
               <Button
                 color="inherit"
-                startIcon={<AppsIcon />}
                 aria-controls={adminAnchorEl ? 'admin-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={adminAnchorEl ? 'true' : undefined}
@@ -70,8 +59,8 @@ function NavBar({ children }) {
                 anchorEl={adminAnchorEl}
                 open={Boolean(adminAnchorEl)}
                 onClose={handleAdminClose}
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} // changed from 'left' to 'right'
-                transformOrigin={{ vertical: 'top', horizontal: 'right' }} // changed from 'left' to 'right'
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} 
+                transformOrigin={{ vertical: 'top', horizontal: 'right' }} 
                 disableScrollLock={true} // prevents layout shift
               >
                 <MenuItem onClick={handleAdminClose} component="a" href="/">
@@ -91,11 +80,11 @@ function NavBar({ children }) {
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                 transformOrigin={{ vertical: 'top', horizontal: 'right' }}
               >
-                <MenuItem onClick={handleMenuClose} component="a" href="/entries">
-                  <ListIcon sx={{ marginRight: 1 }} />Portfolio
+                <MenuItem onClick={handleMenuClose} component="a" href="/">
+                  Portfolio
                 </MenuItem>
                 <MenuItem onClick={handleMenuClose} component="a" href="/about">
-                  <AddIcon sx={{ marginRight: 1 }} />About
+                  About
                 </MenuItem>
               </Menu>
             </>
