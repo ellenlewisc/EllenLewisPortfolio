@@ -1,101 +1,108 @@
 "use client";
+import { Box, Typography, TextField, Button } from "@mui/material";
 
 export default function Contact() {
   return (
-    <main
-      style={{
+    <Box
+      component="main"
+      sx={{
         minHeight: "100vh",
         background: "#fff",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        paddingTop: "5rem",
-        fontFamily: "'Segoe UI', Arial, sans-serif",
+        pt: 2,
       }}
     >
-      <h1
-        style={{
+      <Typography
+        variant="h1"
+        sx={{
           color: "#ff69b4",
           fontSize: "2.8rem",
           fontWeight: "bold",
-          marginBottom: "2rem",
+          mb: 4,
           letterSpacing: "0.05em",
         }}
       >
         Contact
-      </h1>
-      <form
+      </Typography>
+      <Box
+        component="form"
         name="contact"
         method="POST"
         data-netlify="true"
-        style={{
+        sx={{
           background: "#fff",
-          borderRadius: "1rem",
+          borderRadius: 2,
           boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
-          padding: "2rem",
+          p: 4,
           minWidth: 320,
           maxWidth: 400,
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          gap: "1.2rem",
+          gap: 2,
         }}
       >
         <input type="hidden" name="form-name" value="contact" />
 
-        <input
-          type="text"
+        <TextField
           name="name"
           placeholder="Your Name"
           required
-          style={{
-            padding: "0.8rem",
-            borderRadius: "0.5rem",
-            border: "1px solid #ccc",
-            fontSize: "1rem",
+          fullWidth
+          variant="outlined"
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              borderRadius: 1,
+            },
           }}
         />
-        <input
+        <TextField
           type="email"
           name="email"
           placeholder="Your Email"
           required
-          style={{
-            padding: "0.8rem",
-            borderRadius: "0.5rem",
-            border: "1px solid #ccc",
-            fontSize: "1rem",
+          fullWidth
+          variant="outlined"
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              borderRadius: 1,
+            },
           }}
         />
-        <textarea
+        <TextField
           name="message"
           placeholder="Your Message"
           required
+          fullWidth
+          multiline
           rows={5}
-          style={{
-            padding: "0.8rem",
-            borderRadius: "0.5rem",
-            border: "1px solid #ccc",
-            fontSize: "1rem",
-            resize: "vertical",
+          variant="outlined"
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              borderRadius: 1,
+            },
           }}
         />
-        <button
+        <Button
           type="submit"
-          style={{
+          variant="contained"
+          sx={{
             background: "#ff69b4",
             color: "#fff",
-            border: "none",
-            borderRadius: "0.5rem",
-            padding: "0.9rem",
+            borderRadius: 1,
+            py: 1.5,
             fontSize: "1.1rem",
             fontWeight: "bold",
-            cursor: "pointer",
+            "&:hover": {
+              background: "#e55ca3",
+            },
           }}
         >
           Send Message
-        </button>
-      </form>
-    </main>
+        </Button>
+      </Box>
+    </Box>
   );
 }
