@@ -1,7 +1,8 @@
 import styles from "./page.module.css";
-import { Box, Typography, Chip, Stack, Avatar } from "@mui/material";
+import { Box, Typography, Chip, Stack, Avatar, IconButton } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 export default function Home() {
   const technologies = [
@@ -11,9 +12,9 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-
       {/* About + Image section */}
-      <Box className={styles.fadeUp}
+      <Box
+        className={styles.fadeUp}
         component="main"
         sx={{
           display: "flex",
@@ -22,23 +23,24 @@ export default function Home() {
           justifyContent: "center",
           gap: { xs: 6, md: 8 },
           px: 3,
-          maxWidth: '90%',
+          maxWidth: "90%",
           mx: "auto",
         }}
       >
-        {/* Profile Image */}
+        {/* Profile Image + Info */}
         <Box
           sx={{
             flex: { xs: "auto", md: 1 },
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 2
+            gap: 2,
           }}
         >
+          {/* Profile Picture */}
           <Avatar
             alt="Ellen Lewis"
-            src="/images/profile.jpg"
+            src="/images/ellenlewis9.jpg"
             sx={{
               width: { xs: 180, md: 220 },
               height: { xs: 180, md: 220 },
@@ -52,62 +54,62 @@ export default function Home() {
             }}
           />
 
-
-          {/* Location under the image */}
+          {/* Location */}
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
               color: "#555",
               fontWeight: 600,
-              fontSize: { xs: "1.2rem", md: "1.3rem" },
+              fontSize: { xs: "1.1rem", md: "1.25rem" },
+              mt: 2,
               gap: 0.5,
-              mt: 1, // margin-top for spacing
             }}
           >
             <LocationOnIcon sx={{ color: "#ff69b4", fontSize: { xs: 22, md: 26 } }} />
             Halifax & Truro, NS
           </Box>
 
-
-          {/* LinkedIn */}
-          <Box sx={{ mt: 1 }}>
-            <a
+          {/* Social Icons */}
+          <Box
+            sx={{
+              display: "flex",
+              gap: 2,
+              mt: 1,
+            }}
+          >
+            <IconButton
+              component="a"
               href="https://www.linkedin.com/in/ellen-lewis/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-                textDecoration: "none",
-                fontWeight: 600,
-                fontSize: "1.2rem",
-                color: "#555",
+              sx={{
+                color: "#0072b1",
                 transition: "transform 0.3s ease",
+                "&:hover": { transform: "translateY(-3px)" },
               }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  transition: "transform 0.3s ease",
-                  "&:hover": {
-                    transform: "translateY(-3px)",
-                  },
-                }}
-              >
-                <LinkedInIcon sx={{ fontSize: { xs: 22, md: 26 }, color: "#0072b1" }} />
-                Connect
-              </Box>
-            </a>
-          </Box>
+              <LinkedInIcon sx={{ fontSize: { xs: 26, md: 28 } }} />
+            </IconButton>
 
+            <IconButton
+              component="a"
+              href="https://github.com/ellenlewisc"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: "#000",
+                transition: "transform 0.3s ease",
+                "&:hover": { transform: "translateY(-3px)" },
+              }}
+            >
+              <GitHubIcon sx={{ fontSize: { xs: 26, md: 28 } }} />
+            </IconButton>
+          </Box>
         </Box>
 
 
-        {/* About + Technologies Card*/}
+        {/* About + Technologies Card */}
         <Box
           sx={{
             flex: { xs: "auto", md: 3 },
@@ -121,7 +123,6 @@ export default function Home() {
             gap: 4,
           }}
         >
-
           {/* Intro */}
           <Typography
             variant="h5"
@@ -152,13 +153,13 @@ export default function Home() {
               rel="noopener noreferrer"
               sx={{
                 fontWeight: "bold",
-                textDecoration: "none", 
-                color: "#000", 
+                textDecoration: "none",
+                color: "#000",
                 display: "inline-block",
                 transition: "transform 0.3s ease, color 0.3s ease",
                 "&:hover": {
                   transform: "translateY(-3px)",
-                  color: "#ff69b4", 
+                  color: "#ff69b4",
                 },
               }}
             >
@@ -175,7 +176,7 @@ export default function Home() {
               lineHeight: 1.9,
             }}
           >
-            After Graduating from computer science at Dalhouise University, I have been developing custom web applications and software solutions ever since.
+            After graduating from Computer Science at Dalhousie University, I’ve been developing custom web applications and software solutions ever since.
           </Typography>
 
           {/* Technologies */}
@@ -199,7 +200,6 @@ export default function Home() {
               spacing={1.5}
               gap={1.5}
             >
-
               {technologies.map((tech) => (
                 <Chip
                   key={tech}
@@ -219,7 +219,6 @@ export default function Home() {
                     },
                   }}
                 />
-
               ))}
             </Stack>
           </Box>

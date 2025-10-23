@@ -54,9 +54,9 @@ const projectData = {
   },
   "frampton-lab-web-app": {
     title: "Frampton Lab Web App",
-    longDescription: "A web app built on Immediac's content management system (ImmediaCMS: https://immediac.com/content-management-system) which handles the user authentication flow and most of the static content layout. The custom part of the solution I worked on integrates Python data processing in a .NET environment and allows researchers to execute scripts and test chemical solutions directly in the browser.",
+    longDescription: "A web app built on Immediac's content management system (ImmediaCMS: https://immediac.com/content-management-system) which handles the user authentication flow and most of the static content layout. The custom part of the solution I worked on integrates Python data processing in a .NET environment and allows researchers to execute scripts and test chemical solutions directly in the browser. The site design was done by a frontend designer so I primarily worked on the backend for this application.",
     image: "/images/frampton-lab-home.png",
-    technologies: [".NET", "C#", "Python", "ImmediaCms"],
+    technologies: [".NET", "C#", "Python", "ImmediaCMS"],
     features: ["Browser-based Python script execution", "Chemical database management"],
     challenges: ["Integrating Python with .NET", "Displaying real-time calculation results from the python scripts. It was difficult for me to ensure they were running correctly and involved a lot of client communication to understand the complex scientific results for aquesous solutions. (a little out of my speciality!)"],
     liveUrl: "https://phasexplorer.framptonlab.com/",

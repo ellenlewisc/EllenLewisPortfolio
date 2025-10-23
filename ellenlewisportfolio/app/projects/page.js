@@ -8,7 +8,7 @@ import {
   CardContent,
   CardActions,
   Button,
-  Box
+  Box,
 } from "@mui/material";
 import styles from "./page.module.css";
 
@@ -18,7 +18,7 @@ const mockProjects = [
     title: "Pilot Training Web App",
     link: "https://training.cougar.ca",
     description:
-      "A custom training platform built for Cougar Helicopters to replace their legacy systems and improve usability for tracking pilot and engineer cerrtifications/authorizations, and better management of courses, reports, and more.",
+      "A custom training platform built for Cougar Helicopters to replace their legacy systems and improve usability for tracking pilot and engineer certifications/authorizations, and better management of courses, reports, and more.",
     image: "/images/entries-page.png",
     technologies: [".NET", "C#", "Next.js", "React", "SQL", "OpenIddict"],
   },
@@ -34,25 +34,24 @@ const mockProjects = [
   {
     id: "frampton-lab-web-app",
     title: "Frampton Lab Web App",
-    link: "https://phasexplorer.framptonlab.com/", 
+    link: "https://phasexplorer.framptonlab.com/",
     description:
-      "Integrates Python data processing within a .NET environment, allowing researchers to execute scripts directly in the browser and test their chemical solutions",
+      "Integrates Python data processing within a .NET environment, allowing researchers to execute scripts directly in the browser and test their chemical solutions.",
     image: "/images/frampton-lab-home.png",
-    technologies: [".NET", "C#", "Python", "ImmediaCms"],
+    technologies: [".NET", "C#", "Python", "ImmediaCMS"],
   },
   {
     id: "vmo-operations-control-api",
     title: "VMO Operations Control API",
-    link: null, 
+    link: null,
     description:
-      "A .NET Web API that connects Cougar Helicopters’ VMO flight management system to their legacy databases enabling real-time flight data synchronization.",
+      "A .NET Web API that connects Cougar Helicopters’ VMO flight management system to their legacy databases, enabling real-time flight data synchronization.",
     image: "/images/vmo-api.png",
     technologies: [".NET", "C#", "SQL", "REST APIs"],
   },
   {
     id: "personal-portfolio",
     title: "Personal Portfolio Website",
-    link: "/", // your portfolio site
     description:
       "A side project to showcase client and personal projects. Built using Next.js with a Supabase SQL backend and deployed via Netlify for free hosting.",
     image: "/images/portfolio.png",
@@ -68,10 +67,17 @@ export default function Projects() {
         component="h1"
         gutterBottom
         align="center"
-        sx={{ mb: 4 }}
+        sx={{
+          mb: 4,
+          color: "#ff69b4",
+          fontSize: "2.8rem",
+          fontWeight: "bold",
+          letterSpacing: "0.05em",
+        }}
       >
         Projects
       </Typography>
+
       <Typography
         variant="h6"
         component="p"
@@ -79,8 +85,9 @@ export default function Projects() {
         color="text.secondary"
         sx={{ mb: 5 }}
       >
-        Here are some of the projects I've worked on for previous clients, as
-        well as some I've done on the side.
+        Here are some of the projects I've worked on for clients at Immediac,
+        internal projects at Cougar Helicopters, and some personal ones I've done
+        on the side.
       </Typography>
 
       <Grid container spacing={4}>
@@ -154,22 +161,24 @@ export default function Projects() {
                 >
                   View Details
                 </Button>
-                <Button
-                  size="small"
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  color="primary"
-                  sx={{
-                    "&:hover": {
-                      backgroundColor: "rgba(25, 118, 210, 0.1)",
-                    },
-                  }}
-                >
-                  Live Site
-                </Button>
-              </CardActions>
 
+                {project.link && (
+                  <Button
+                    size="small"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    color="primary"
+                    sx={{
+                      "&:hover": {
+                        backgroundColor: "rgba(25, 118, 210, 0.1)",
+                      },
+                    }}
+                  >
+                    Live Site
+                  </Button>
+                )}
+              </CardActions>
             </Card>
           </Grid>
         ))}
