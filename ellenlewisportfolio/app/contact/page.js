@@ -1,13 +1,54 @@
 "use client";
-import { Box, Typography, TextField, Button } from "@mui/material";
+import { Box, Typography, TextField, Button, Alert, CircularProgress } from "@mui/material";
+import { useState } from "react";
+import { supabase } from "@/lib/supabase";
+import styles from "./page.module.css";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const { error } = await supabase
+        .from('ContactForm')
+        .insert([formData]);
+
+      if (error) throw error;
+
+      setSubmitStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' });
+      setFormData({ full_name: "", email: "", message: "" });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <Box
+      className={styles.fadeUp}
       component="main"
       sx={{
         minHeight: "100vh",
-        background: "#fff",
+        borderRadius: 3,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -28,13 +69,11 @@ export default function Contact() {
       </Typography>
       <Box
         component="form"
-        name="contact"
-        method="POST"
-        data-netlify="true"
+        onSubmit={handleSubmit}
         sx={{
-          background: "#fff",
+          background: "linear-gradient(135deg, #f9f9f9 0%, #fff0f5 100%)",
           borderRadius: 2,
-          boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+          boxShadow: "0 8px 25px rgba(0,0,0,0.1)",
           p: 4,
           minWidth: 320,
           maxWidth: 400,
@@ -44,14 +83,21 @@ export default function Contact() {
           gap: 2,
         }}
       >
-        <input type="hidden" name="form-name" value="contact" />
+        {submitStatus && (
+          <Alert severity={submitStatus.type} sx={{ mb: 2 }}>
+            {submitStatus.message}
+          </Alert>
+        )}
 
         <TextField
-          name="name"
+          name="full_name"
           placeholder="Your Name"
+          value={formData.full_name}
+          onChange={handleChange}
           required
           fullWidth
           variant="outlined"
+          disabled={isSubmitting}
           sx={{
             "& .MuiOutlinedInput-root": {
               borderRadius: 1,
@@ -62,9 +108,12 @@ export default function Contact() {
           type="email"
           name="email"
           placeholder="Your Email"
+          value={formData.email}
+          onChange={handleChange}
           required
           fullWidth
           variant="outlined"
+          disabled={isSubmitting}
           sx={{
             "& .MuiOutlinedInput-root": {
               borderRadius: 1,
@@ -74,11 +123,14 @@ export default function Contact() {
         <TextField
           name="message"
           placeholder="Your Message"
+          value={formData.message}
+          onChange={handleChange}
           required
           fullWidth
           multiline
           rows={5}
           variant="outlined"
+          disabled={isSubmitting}
           sx={{
             "& .MuiOutlinedInput-root": {
               borderRadius: 1,
@@ -88,6 +140,7 @@ export default function Contact() {
         <Button
           type="submit"
           variant="contained"
+          disabled={isSubmitting}
           sx={{
             background: "#ff69b4",
             color: "#fff",
@@ -98,9 +151,19 @@ export default function Contact() {
             "&:hover": {
               background: "#e55ca3",
             },
+            "&:disabled": {
+              background: "#ccc",
+            },
           }}
         >
-          Send Message
+          {isSubmitting ? (
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <CircularProgress size={20} color="inherit" />
+              Sending...
+            </Box>
+          ) : (
+            "Send Message"
+          )}
         </Button>
       </Box>
     </Box>

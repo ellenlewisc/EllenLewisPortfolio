@@ -1,24 +1,50 @@
 .page {
   min-height: 100vh;
-  background: #fff; /* White background */
+  background: #fff;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; 
+  padding-top: 40px;
 }
 
+.fadeUp {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 .centerBox {
-  background: #ff69b4; /* Pink box */
+  background: #ff69b4; 
   color: #fff;
-  padding: 3rem 6rem;
+  margin-bottom: 30px;
+  padding: 2.5rem 6rem;
   border-radius: 2rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 36px rgba(0,0,0,0.12);
   border: 4px solid #ff69b4;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
   letter-spacing: 0.1em;
   text-align: center;
   font-family: 'Segoe UI', 'Arial', sans-serif;
 }
+
+@media (max-width: 600px) {
+  .centerBox {
+    font-size: 2.2rem;
+    padding: 1.5rem 3rem;
+  }
+}
+
+
 
 @media (prefers-color-scheme: dark) {
   .page {
@@ -129,6 +155,12 @@ a.secondary {
     text-underline-offset: 4px;
   }
 }
+
+.linkedinHover:hover svg {
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+
 
 @media (max-width: 600px) {
   .page {
