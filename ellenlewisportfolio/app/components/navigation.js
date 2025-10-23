@@ -44,9 +44,6 @@ function NavBar({ children }) {
           <Box sx={{ flexGrow: 1 }} />
           
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
-            <Button href="/projects" color="inherit" sx={{ textTransform: "none" }}>
-              Projects
-            </Button>
            <Button href="/resume" color="inherit" sx={{ textTransform: "none" }}>
               Resume
             </Button>
@@ -72,9 +69,6 @@ function NavBar({ children }) {
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
             disableScrollLock={true}
           >
-            <MenuItem onClick={handleMenuClose} component="a" href="/projects">
-              Projects
-            </MenuItem>
             <MenuItem onClick={handleMenuClose} component="a" href="/resume">
               Projects
             </MenuItem>
