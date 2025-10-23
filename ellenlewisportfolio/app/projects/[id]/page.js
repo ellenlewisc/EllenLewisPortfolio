@@ -31,7 +31,6 @@ const projectData = {
       "Optimizing database queries for large datasets",
       "Integrating with existing legacy systems / importing exisitng data",
     ],
-    liveUrl: "https://training.cougar.ca",
     githubUrl: null,
   },
   "cat-gallery-website": {
@@ -59,7 +58,6 @@ const projectData = {
     technologies: [".NET", "C#", "Python", "ImmediaCMS"],
     features: ["Browser-based Python script execution", "Chemical database management"],
     challenges: ["Integrating Python with .NET", "Displaying real-time calculation results from the python scripts. It was difficult for me to ensure they were running correctly and involved a lot of client communication to understand the complex scientific results for aquesous solutions. (a little out of my speciality!)"],
-    liveUrl: "https://phasexplorer.framptonlab.com/",
     githubUrl: null,
   },
   "vmo-operations-control-api": {
@@ -69,7 +67,6 @@ const projectData = {
     technologies: [".NET", "C#", "SQL", "APIs"],
     features: ["Real-time flight data sync", "Legacy system components", "API integration"],
     challenges: ["Integrating with another API can always be challenging with figuring out their documentation, data formats, and authorization.", "Handling authorization coming from the VMO api itself to ensure security.", "Ensuring the correct data is being inserted / updated."],
-    liveUrl: null,
     githubUrl: null,
   },
   "personal-portfolio": {

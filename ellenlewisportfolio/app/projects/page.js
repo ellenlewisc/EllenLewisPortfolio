@@ -16,7 +16,6 @@ const mockProjects = [
   {
     id: "pilot-training-web-app",
     title: "Pilot Training Web App",
-    link: "https://training.cougar.ca",
     description:
       "A custom training platform built for Cougar Helicopters to replace their legacy systems and improve usability for tracking pilot and engineer certifications/authorizations, and better management of courses, reports, and more.",
     image: "/images/entries-page.png",
@@ -34,7 +33,6 @@ const mockProjects = [
   {
     id: "frampton-lab-web-app",
     title: "Frampton Lab Web App",
-    link: "https://phasexplorer.framptonlab.com/",
     description:
       "Integrates Python data processing within a .NET environment, allowing researchers to execute scripts directly in the browser and test their chemical solutions.",
     image: "/images/frampton-lab-home.png",
