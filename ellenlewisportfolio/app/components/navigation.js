@@ -30,11 +30,11 @@ function NavBar({ children }) {
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <AppBar position="fixed" sx={{ backgroundColor: "#ff69b4" }}>
         <Toolbar>
-          <Button 
-            href="/" 
-            sx={{ 
-              color: "#fff", 
-              fontWeight: "bold", 
+          <Button
+            href="/"
+            sx={{
+              color: "#fff",
+              fontWeight: "bold",
               fontSize: { xs: "1.1rem", sm: "1.3rem" },
               textTransform: "none"
             }}
@@ -42,9 +42,9 @@ function NavBar({ children }) {
             Ellen Lewis
           </Button>
           <Box sx={{ flexGrow: 1 }} />
-          
+
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
-           <Button href="/resume" color="inherit" sx={{ textTransform: "none" }}>
+            <Button href="/resume" color="inherit" sx={{ textTransform: "none" }}>
               Resume
             </Button>
             <Button href="/contact" color="inherit" sx={{ textTransform: "none" }}>
@@ -52,15 +52,15 @@ function NavBar({ children }) {
             </Button>
           </Box>
 
-          <IconButton 
-            color="inherit" 
+          <IconButton
+            color="inherit"
             onClick={handleMenuOpen}
             sx={{ display: { xs: 'flex', md: 'none' } }}
             aria-label="menu"
           >
             <MenuIcon />
           </IconButton>
-          
+
           <Menu
             anchorEl={menuAnchorEl}
             open={Boolean(menuAnchorEl)}
@@ -70,7 +70,7 @@ function NavBar({ children }) {
             disableScrollLock={true}
           >
             <MenuItem onClick={handleMenuClose} component="a" href="/resume">
-              Projects
+              Resume
             </MenuItem>
             <MenuItem onClick={handleMenuClose} component="a" href="/contact">
               Contact
