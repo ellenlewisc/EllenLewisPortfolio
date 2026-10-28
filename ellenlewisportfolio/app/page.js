@@ -7,7 +7,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 export default function Home() {
   const technologies = [
     "C#", ".NET", "React", "Next.js", "SQL", "Git",
-    "JavaScript", "Python", "Java", "Vue.js", "APIs"
+    "JavaScript", "Python", "Java", "Vue.js", "APIs", "AI", "MCP Servers"
   ];
 
   return (
@@ -15,7 +15,6 @@ export default function Home() {
       {/* Main layout: image + text side-by-side on desktop */}
       <Box
         className={styles.fadeUp}
-        component="main"
         sx={{
           display: "flex",
           flexDirection: { xs: "column", md: "row" },

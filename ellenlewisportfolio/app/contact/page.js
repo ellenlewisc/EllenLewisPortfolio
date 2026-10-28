@@ -10,6 +10,7 @@ export default function Contact() {
     email: "",
     message: "",
   });
+  const [honeypot, setHoneypot] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
@@ -26,11 +27,18 @@ export default function Contact() {
     setSubmitStatus(null);
 
     try {
-      const { error } = await supabase
-        .from('ContactForm')
-        .insert([formData]);
+      // Bots fill the hidden field; show them success without saving anything.
+      if (!honeypot) {
+        const { error } = await supabase
+          .from('ContactForm')
+          .insert([{
+            full_name: formData.full_name.trim(),
+            email: formData.email.trim(),
+            message: formData.message.trim(),
+          }]);
 
-      if (error) throw error;
+        if (error) throw error;
+      }
 
       setSubmitStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' });
       setFormData({ full_name: "", email: "", message: "" });
@@ -45,7 +53,6 @@ export default function Contact() {
   return (
     <Box
       className={styles.fadeUp}
-      component="main"
       sx={{
         minHeight: "100vh",
         borderRadius: 3,
@@ -89,6 +96,17 @@ export default function Contact() {
           </Alert>
         )}
 
+        <Box
+          component="input"
+          type="text"
+          name="website"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          sx={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+        />
         <TextField
           name="full_name"
           placeholder="Your Name"
@@ -98,6 +116,7 @@ export default function Contact() {
           fullWidth
           variant="outlined"
           disabled={isSubmitting}
+          slotProps={{ htmlInput: { maxLength: 100, "aria-label": "Your Name" } }}
           sx={{
             "& .MuiOutlinedInput-root": {
               borderRadius: 1,
@@ -114,6 +133,7 @@ export default function Contact() {
           fullWidth
           variant="outlined"
           disabled={isSubmitting}
+          slotProps={{ htmlInput: { maxLength: 254, "aria-label": "Your Email" } }}
           sx={{
             "& .MuiOutlinedInput-root": {
               borderRadius: 1,
@@ -131,6 +151,7 @@ export default function Contact() {
           rows={5}
           variant="outlined"
           disabled={isSubmitting}
+          slotProps={{ htmlInput: { maxLength: 2000, "aria-label": "Your Message" } }}
           sx={{
             "& .MuiOutlinedInput-root": {
               borderRadius: 1,

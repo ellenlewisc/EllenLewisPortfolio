@@ -3,13 +3,6 @@ import { Box, Button, Typography } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 
 export default function ResumePage() {
-    const handleDownload = () => {
-        const link = document.createElement("a");
-        link.href = "resume.pdf";
-        link.download = "Ellen-Lewis-Resume.pdf";
-        link.click();
-    };
-
     return (
         <Box
             sx={{
@@ -35,6 +28,7 @@ export default function ResumePage() {
             >
                 <iframe
                     src="/resume.pdf#view=FitH"
+                    title="Ellen Lewis resume"
                     width="100%"
                     height="100%"
                 ></iframe>
@@ -42,9 +36,11 @@ export default function ResumePage() {
             </Box>
 
             <Button
+                component="a"
+                href="/resume.pdf"
+                download="Ellen-Lewis-Resume.pdf"
                 variant="contained"
                 startIcon={<DownloadIcon />}
-                onClick={handleDownload}
                 sx={{
                     backgroundColor: "#ff69b4",
                     color: "#fff",

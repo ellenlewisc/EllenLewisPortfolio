@@ -10,6 +10,7 @@ import {
   Button,
   Box,
 } from "@mui/material";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 const mockProjects = [
@@ -90,7 +91,7 @@ export default function Projects() {
 
       <Grid container spacing={4}>
         {mockProjects.map((project) => (
-          <Grid item xs={12} sm={6} md={4} key={project.id}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }} key={project.id}>
             <Card
               sx={{
                 height: "100%",
@@ -149,6 +150,7 @@ export default function Projects() {
               <CardActions>
                 <Button
                   size="small"
+                  component={Link}
                   href={`/projects/${project.id}`}
                   sx={{
                     color: "#ff69b4",

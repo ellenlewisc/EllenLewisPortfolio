@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { ArrowBack, Launch, Code } from "@mui/icons-material";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 export async function generateStaticParams() {
   return Object.keys(projectData).map((id) => ({ id }));
@@ -18,7 +19,7 @@ export async function generateStaticParams() {
 const projectData = {
   "pilot-training-web-app": {
     title: "Pilot Training Web App",
-    longDescription: `A custom training platform for Cougar Helicopters to replace legacy systems and improve usability for tracking pilot and engineer certifications. The app was orginally built with a scope only for pilot training tracking, but due to the success and improved usability, they requested expansion to all training and related data management. Complete with secure user authentication and role based functionality using OpenIddict`,
+    longDescription: `A custom training platform for Cougar Helicopters to replace legacy systems and improve usability for tracking pilot and engineer certifications. The app was originally built with a scope only for pilot training tracking, but due to the success and improved usability, they requested expansion to all training and related data management. Complete with secure user authentication and role based functionality using OpenIddict`,
     image: "/images/entries-page.png",
     technologies: [".NET", "C#", "Next.js", "React", "SQL", "OpenIddict", "JWT"],
     features: [
@@ -29,13 +30,13 @@ const projectData = {
     challenges: [
       "Handling user roles and permissions",
       "Optimizing database queries for large datasets",
-      "Integrating with existing legacy systems / importing exisitng data",
+      "Integrating with existing legacy systems / importing existing data",
     ],
     githubUrl: null,
   },
   "cat-gallery-website": {
     title: "Cat Gallery Website",
-    longDescription: `A fun gallery/blog stlye personal project to display memories, built as a birthday surprise for a cat-lover. All users are able to browse the images, however a login flow was added to lock down image upload and deletion functionality. Built with Next.js and uses Supabase's databse to store the image keys, captions, and uses their blob storage and user authentication.`,
+    longDescription: `A fun gallery/blog style personal project to display memories, built as a birthday surprise for a cat-lover. All users are able to browse the images, however a login flow was added to lock down image upload and deletion functionality. Built with Next.js and uses Supabase's database to store the image keys, captions, and uses their blob storage and user authentication.`,
     image: "/images/cat-gallery.png",
     technologies: ["Next.js", "Supabase", "JWT", "Blob storage"],
     features: [
@@ -57,12 +58,12 @@ const projectData = {
     image: "/images/frampton-lab-home.png",
     technologies: [".NET", "C#", "Python", "ImmediaCMS"],
     features: ["Browser-based Python script execution", "Chemical database management"],
-    challenges: ["Integrating Python with .NET", "Displaying real-time calculation results from the python scripts. It was difficult for me to ensure they were running correctly and involved a lot of client communication to understand the complex scientific results for aquesous solutions. (a little out of my speciality!)"],
+    challenges: ["Integrating Python with .NET", "Displaying real-time calculation results from the python scripts. It was difficult for me to ensure they were running correctly and involved a lot of client communication to understand the complex scientific results for aqueous solutions. (a little out of my speciality!)"],
     githubUrl: null,
   },
   "vmo-operations-control-api": {
     title: "VMO Operations Control API",
-    longDescription: `A .NET Web API connecting Cougar Helicopters’ VMO system to legacy databases, enabling real-time flight data synchronization. This project acted as the "middleman" recieving data from the VMO API whenever flights were updated, handled and inserted it into a modern database then using a databse trigger, updated the legacy system to display on their existing UI.`,
+    longDescription: `A .NET Web API connecting Cougar Helicopters’ VMO system to legacy databases, enabling real-time flight data synchronization. This project acted as the "middleman" receiving data from the VMO API whenever flights were updated, handled and inserted it into a modern database then using a database trigger, updated the legacy system to display on their existing UI.`,
     image: "/images/vmo-api.png",
     technologies: [".NET", "C#", "SQL", "APIs"],
     features: ["Real-time flight data sync", "Legacy system components", "API integration"],
@@ -71,17 +72,18 @@ const projectData = {
   },
   "personal-portfolio": {
     title: "Personal Portfolio Website",
-    longDescription: `A portfolio site to showcase client and personal projects and demonstrate the technologies used. Built with Next.js my favorite javscript framework and connected the contact form to a Supabase SQL database using their API. Tested out using claude code AI to generate an intial draft of the site and customized it from there.`,
+    longDescription: `A portfolio site to showcase client and personal projects and demonstrate the technologies used. Built with Next.js my favorite JavaScript framework and connected the contact form to a Supabase SQL database using their API. Tested out using claude code AI to generate an initial draft of the site and customized it from there.`,
     image: "/images/portfolio.png",
     technologies: ["Next.js", "SQL"],
     features: ["Project showcase", "Responsive design", "Backend integration with Supabase and Netlify"],
-    challenges: ["Making it look nice, since I am not specialized in design. Fortunatlely, Immediac has a few amazing front end designers who take on this role, but it's fun to give it a go on my own once in a while.", "Deciding where to host and what database to use. Typically all of the client projects I've worked on have been hosted on Azure. For simplicity sake, I went with Netlify and Supabase as they integrate well together quickly at a free cost."],
+    challenges: ["Making it look nice, since I am not specialized in design. Fortunately, Immediac has a few amazing front end designers who take on this role, but it's fun to give it a go on my own once in a while.", "Deciding where to host and what database to use. Typically all of the client projects I've worked on have been hosted on Azure. For simplicity sake, I went with Netlify and Supabase as they integrate well together quickly at a free cost."],
     githubUrl: "https://github.com/ellenlewisc/EllenLewisPortfolio",
   },
 };
 
-export default function ProjectDetail({ params }) {
-  const project = projectData[params.id];
+export default async function ProjectDetail({ params }) {
+  const { id } = await params;
+  const project = projectData[id];
 
   if (!project) notFound();
 
@@ -90,6 +92,7 @@ export default function ProjectDetail({ params }) {
       {/* Header */}
       <Box sx={{ mb: 4 }}>
         <Button
+          component={Link}
           href="/projects"
           startIcon={<ArrowBack />}
           sx={{
@@ -112,6 +115,7 @@ export default function ProjectDetail({ params }) {
               startIcon={<Launch />}
               href={project.liveUrl}
               target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 backgroundColor: "#ff69b4",
                 "&:hover": { backgroundColor: "#e91e63" },
@@ -126,6 +130,7 @@ export default function ProjectDetail({ params }) {
               startIcon={<Code />}
               href={project.githubUrl}
               target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 borderColor: "#ff69b4",
                 color: "#ff69b4",
@@ -178,7 +183,7 @@ export default function ProjectDetail({ params }) {
 
       {/* Project Details Grid */}
       <Grid container spacing={4}>
-        <Grid item xs={12} md={8}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <Card sx={{ mb: 4 }}>
             <CardContent>
               <Typography variant="h5" gutterBottom>
@@ -194,7 +199,7 @@ export default function ProjectDetail({ params }) {
           </Card>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Card sx={{ mb: 4 }}>
             <CardContent>
               <Typography variant="h6" gutterBottom>

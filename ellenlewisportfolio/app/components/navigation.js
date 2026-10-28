@@ -11,6 +11,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 export default function TopNav({ children }) {
@@ -68,6 +69,7 @@ function NavBar({ children }) {
       >
         <Toolbar sx={{ width: "100%", maxWidth: 1400, mx: "auto", px: { xs: 2, md: 4 } }}>
           <Button
+            component={Link}
             href="/"
             disableRipple
             sx={{
@@ -86,10 +88,11 @@ function NavBar({ children }) {
           <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: "center", gap: 1 }}>
-            <Button href="/resume" disableRipple sx={linkSx("/resume")}>
+            <Button component={Link} href="/resume" disableRipple sx={linkSx("/resume")}>
               Resume
             </Button>
             <Button
+              component={Link}
               href="/contact"
               variant="contained"
               disableElevation
@@ -124,10 +127,10 @@ function NavBar({ children }) {
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
             disableScrollLock={true}
           >
-            <MenuItem onClick={handleMenuClose} component="a" href="/resume">
+            <MenuItem onClick={handleMenuClose} component={Link} href="/resume">
               Resume
             </MenuItem>
-            <MenuItem onClick={handleMenuClose} component="a" href="/contact">
+            <MenuItem onClick={handleMenuClose} component={Link} href="/contact">
               Contact
             </MenuItem>
           </Menu>
