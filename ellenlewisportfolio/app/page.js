@@ -137,7 +137,7 @@ export default function Home() {
           >
             Hi! I'm{" "}
             <Box component="span" sx={{ color: "#ff69b4", fontWeight: 700 }}>
-              Ellen Lewis
+              Ellen 
             </Box>
             , a full-stack software developer at{" "}
             <Box
