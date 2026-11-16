@@ -163,8 +163,7 @@ export default function Home() {
             </Grid>
             <Grid size={{ xs: 12, md: 5 }}>
               <Typography color="text.secondary" sx={{ fontSize: { xs: "1.05rem", md: "1.15rem" }, lineHeight: 1.7, maxWidth: 460 }}>
-                  I build custom web applications and APIs with .NET, C# and React, taking projects from
-                  first requirements through to deployment. Currently a software developer at{" "}
+                  I&apos;m a software developer at{" "}
                   <Box
                     component="a"
                     href="https://immediac.com"
@@ -181,7 +180,7 @@ export default function Home() {
                   >
                     ImmediaC
                   </Box>{" "}
-                  in Halifax, Nova Scotia.
+                  in Halifax, delivering client solutions from first requirements through launch.
               </Typography>
 
               <Stack direction="row" flexWrap="wrap" useFlexGap spacing={1.5} alignItems="center" sx={{ mt: 3.5 }}>
