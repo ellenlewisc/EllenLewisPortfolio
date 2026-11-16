@@ -89,7 +89,7 @@ export default function Contact() {
             name="contact"
             onSubmit={handleSubmit}
             sx={{
-              bgcolor: "#f8fafc",
+              bgcolor: "bloom.main",
               border: 1,
               borderColor: "divider",
               borderRadius: 3,

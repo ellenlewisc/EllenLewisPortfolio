@@ -1,14 +1,14 @@
-import { Inter, Fraunces } from "next/font/google";
+import { Figtree, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import Providers from "./components/providers";
 import Navigation from "./components/navigation";
 
-const sans = Inter({
+const sans = Figtree({
   variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const display = Fraunces({
+const display = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
 });

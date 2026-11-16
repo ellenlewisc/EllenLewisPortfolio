@@ -59,6 +59,8 @@ export default function Navigation({ children }) {
               href="/"
               sx={{
                 fontFamily: "var(--font-display), Georgia, serif",
+                color: "text.primary",
+                textDecoration: "none",
                 fontWeight: 600,
                 fontSize: { xs: "1.2rem", sm: "1.35rem" },
                 letterSpacing: "-0.01em",
@@ -121,7 +123,7 @@ export default function Navigation({ children }) {
           }}
         >
           <Typography variant="body2" color="text.secondary">
-            © {new Date().getFullYear()} Ellen Lewis · Halifax, Nova Scotia
+            © {new Date().getFullYear()} Ellen Lewis, Halifax, Nova Scotia
           </Typography>
           <Box sx={{ display: "flex", gap: 1 }}>
             {socialLinks.map(({ href, label, Icon }) => (

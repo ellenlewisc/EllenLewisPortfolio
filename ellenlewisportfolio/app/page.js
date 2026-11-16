@@ -52,7 +52,7 @@ const experience = [
 const work = [
   {
     title: "NSTU Conference Platform",
-    context: "Client project · ImmediaC",
+    context: "ImmediaC client project",
     year: "2026",
     description:
       "A live web application for 40,000+ combined teachers, administrators and other members of the Nova Scotia Teachers Union, with admin and member portals for conference setup, registration with Stripe payments, and capacity management.",
@@ -60,7 +60,7 @@ const work = [
   },
   {
     title: "Energy Trading Platform",
-    context: "Client project · ImmediaC",
+    context: "ImmediaC client project",
     year: "2026",
     description:
       "A data management and visualization platform that replaced an energy arbitrage client's legacy Access database and imported all of their existing data. A built-in MCP server lets AI clients such as ChatGPT retrieve transactions and run daily data imports.",
@@ -91,12 +91,9 @@ const skills = [
   { group: "Tools & languages", items: ["Git", "Python", "Java"] },
 ];
 
-function SectionHeading({ eyebrow, title }) {
+function SectionHeading({ title }) {
   return (
     <Box sx={{ mb: { xs: 4, md: 6 } }}>
-      <Typography variant="overline" component="p" color="secondary">
-        {eyebrow}
-      </Typography>
       <Typography variant="h2" sx={{ fontSize: { xs: "1.9rem", md: "2.4rem" } }}>
         {title}
       </Typography>
@@ -115,7 +112,7 @@ function TechList({ items }) {
           label={item}
           size="small"
           variant="outlined"
-          sx={{ bgcolor: "#f8fafc", borderColor: "divider", color: "text.secondary" }}
+          sx={{ bgcolor: "secondary.light", border: 0, color: "primary.main" }}
         />
       ))}
     </Stack>
@@ -125,94 +122,96 @@ function TechList({ items }) {
 export default function Home() {
   return (
     <>
-      <Box component="section" sx={{ bgcolor: "#f8fafc", borderBottom: 1, borderColor: "divider" }}>
-        <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
-          <Grid container spacing={{ xs: 5, md: 8 }} alignItems="center" className="fadeUp">
-            <Grid size={{ xs: 12, md: 7 }} sx={{ order: { xs: 2, md: 1 } }}>
-              <Typography variant="overline" component="p" color="secondary">
-                Full-stack software developer
-              </Typography>
-              <Typography variant="h1" sx={{ fontSize: { xs: "2.75rem", md: "4rem" }, mb: 3 }}>
-                Ellen Lewis
-              </Typography>
+      <Box component="section" sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Container maxWidth="lg" sx={{ pt: { xs: 5, md: 9 }, pb: { xs: 7, md: 11 } }} className="fadeUp">
+          <Stack direction="row" alignItems="center" spacing={{ xs: 2, md: 3 }} sx={{ mb: { xs: 3, md: 5 } }}>
+            <Box
+              component="img"
+              src="/images/ellen-lewis.jpg"
+              alt="Ellen Lewis"
+              sx={{
+                width: { xs: 88, md: 128 },
+                height: { xs: 88, md: 128 },
+                borderRadius: "50%",
+                objectFit: "cover",
+                objectPosition: "center 15%",
+                boxShadow: "0 0 0 3px #ffffff, 0 0 0 5px #dcd8f2",
+              }}
+            />
+            <Box>
+              <Typography sx={{ fontWeight: 600, fontSize: { xs: "1.05rem", md: "1.2rem" } }}>Full-stack software developer</Typography>
+              <Stack direction="row" alignItems="center" spacing={0.5} sx={{ color: "text.secondary" }}>
+                <LocationOnOutlinedIcon sx={{ fontSize: 16 }} />
+                <Typography variant="body2">Halifax & Truro, NS</Typography>
+              </Stack>
+            </Box>
+          </Stack>
+
+          <Grid container spacing={{ xs: 4, md: 6 }} alignItems="flex-end">
+            <Grid size={{ xs: 12, md: 7 }}>
               <Typography
-                color="text.secondary"
-                sx={{ fontSize: { xs: "1.05rem", md: "1.2rem" }, lineHeight: 1.75, maxWidth: 560 }}
+                variant="h1"
+                sx={{ fontSize: { xs: "4.5rem", sm: "6.5rem", md: "8.75rem" }, lineHeight: 0.86, letterSpacing: "-0.055em" }}
               >
-                I build custom web applications and APIs with .NET, C# and React, taking projects from
-                first requirements through to deployment. Currently a software developer at{" "}
-                <Box
-                  component="a"
-                  href="https://immediac.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{
-                    color: "text.primary",
-                    fontWeight: 600,
-                    textDecoration: "underline",
-                    textDecorationColor: "rgba(15,118,110,0.4)",
-                    textUnderlineOffset: "4px",
-                    "&:hover": { color: "secondary.main" },
-                  }}
-                >
-                  ImmediaC
-                </Box>{" "}
-                in Halifax, Nova Scotia.
+                Ellen
+                <br />
+                Lewis
+                <Box component="span" aria-hidden="true" sx={{ color: "secondary.main" }}>
+                  .
+                </Box>
+              </Typography>
+            </Grid>
+            <Grid size={{ xs: 12, md: 5 }}>
+              <Typography color="text.secondary" sx={{ fontSize: { xs: "1.05rem", md: "1.15rem" }, lineHeight: 1.7, maxWidth: 460 }}>
+                  I build custom web applications and APIs with .NET, C# and React, taking projects from
+                  first requirements through to deployment. Currently a software developer at{" "}
+                  <Box
+                    component="a"
+                    href="https://immediac.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: "text.primary",
+                      fontWeight: 600,
+                      textDecoration: "underline",
+                      textDecorationColor: "rgba(75,63,158,0.4)",
+                      textUnderlineOffset: "4px",
+                      "&:hover": { color: "secondary.main" },
+                    }}
+                  >
+                    ImmediaC
+                  </Box>{" "}
+                  in Halifax, Nova Scotia.
               </Typography>
 
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ mt: 4 }}>
+              <Stack direction="row" flexWrap="wrap" useFlexGap spacing={1.5} alignItems="center" sx={{ mt: 3.5 }}>
                 <Button component={Link} href="/contact" variant="contained" size="large">
                   Get in touch
                 </Button>
                 <Button component={Link} href="/resume" variant="outlined" size="large">
                   View resume
                 </Button>
+                {socialLinks.map(({ href, label, Icon }) => (
+                  <IconButton
+                    key={label}
+                    component="a"
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    sx={{
+                      width: 46,
+                      height: 46,
+                      border: 1,
+                      borderColor: "rgba(34,29,61,0.5)",
+                      color: "primary.main",
+                      "&:hover": { bgcolor: "secondary.light", borderColor: "secondary.main" },
+                    }}
+                  >
+                    <Icon />
+                  </IconButton>
+                ))}
               </Stack>
-
-              <Stack direction="row" alignItems="center" spacing={2} sx={{ mt: 4, color: "text.secondary" }}>
-                <Stack direction="row" alignItems="center" spacing={0.5}>
-                  <LocationOnOutlinedIcon fontSize="small" />
-                  <Typography variant="body2">Halifax & Truro, NS</Typography>
-                </Stack>
-                <Box sx={{ width: "1px", height: 20, bgcolor: "divider" }} />
-                <Stack direction="row" spacing={0.5}>
-                  {socialLinks.map(({ href, label, Icon }) => (
-                    <IconButton
-                      key={label}
-                      component="a"
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      size="small"
-                      sx={{ color: "text.secondary", "&:hover": { color: "text.primary" } }}
-                    >
-                      <Icon fontSize="small" />
-                    </IconButton>
-                  ))}
-                </Stack>
-              </Stack>
-            </Grid>
-
-            <Grid size={{ xs: 12, md: 5 }} sx={{ order: { xs: 1, md: 2 } }}>
-              <Box
-                component="img"
-                src="/images/ellen-lewis.jpg"
-                alt="Ellen Lewis"
-                sx={{
-                  display: "block",
-                  width: "100%",
-                  maxWidth: { xs: 320, md: 420 },
-                  mx: "auto",
-                  aspectRatio: "4 / 5",
-                  objectFit: "cover",
-                  objectPosition: "center 15%",
-                  borderRadius: 3,
-                  border: 1,
-                  borderColor: "divider",
-                  boxShadow: "0 20px 40px -24px rgba(15,23,42,0.35)",
-                }}
-              />
             </Grid>
           </Grid>
         </Container>
@@ -220,7 +219,7 @@ export default function Home() {
 
       <Box component="section" id="experience">
         <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-          <SectionHeading eyebrow="Experience" title="Where I've worked" />
+          <SectionHeading title="Where I've worked" />
 
           <Stack spacing={0}>
             {experience.map((job, index) => (
@@ -240,7 +239,7 @@ export default function Home() {
                     {job.role}
                   </Typography>
                   <Typography color="text.secondary" sx={{ mb: 1.5 }}>
-                    {job.company} · {job.location}
+                    {job.company}, {job.location}
                   </Typography>
                   <Box component="ul" sx={{ pl: 2.5, m: 0, color: "text.secondary" }}>
                     {job.points.map((point) => (
@@ -267,33 +266,26 @@ export default function Home() {
                 <Typography variant="h6" component="h3" sx={{ fontWeight: 600, lineHeight: 1.3 }}>
                   Bachelor of Computer Science
                 </Typography>
-                <Typography color="text.secondary">Dalhousie University · Halifax, NS</Typography>
+                <Typography color="text.secondary">Dalhousie University, Halifax, NS</Typography>
               </Grid>
             </Grid>
           </Stack>
         </Container>
       </Box>
 
-      <Box component="section" id="work" sx={{ bgcolor: "#f8fafc", borderTop: 1, borderBottom: 1, borderColor: "divider" }}>
+      <Box component="section" id="work" sx={{ bgcolor: "bloom.main", borderTop: 1, borderBottom: 1, borderColor: "divider" }}>
         <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-          <SectionHeading eyebrow="Selected work" title="Recent projects" />
+          <SectionHeading title="Recent projects" />
 
-          <Grid container spacing={3}>
+          <Grid container columnSpacing={6} rowSpacing={{ xs: 6, md: 8 }}>
             {work.map((project) => (
               <Grid size={{ xs: 12, md: 6 }} key={project.title}>
                 <Box
                   sx={{
                     height: "100%",
-                    p: { xs: 3, md: 4 },
-                    bgcolor: "background.paper",
-                    border: 1,
-                    borderColor: "divider",
-                    borderRadius: 3,
-                    transition: "border-color 0.2s, box-shadow 0.2s",
-                    "&:hover": {
-                      borderColor: "#cbd5e1",
-                      boxShadow: "0 12px 32px -20px rgba(15,23,42,0.3)",
-                    },
+                    pt: 3,
+                    borderTop: 3,
+                    borderColor: "secondary.main",
                   }}
                 >
                   <Stack direction="row" justifyContent="space-between" spacing={2} sx={{ mb: 1 }}>
@@ -320,7 +312,7 @@ export default function Home() {
 
       <Box component="section" id="skills">
         <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-          <SectionHeading eyebrow="Skills" title="What I work with" />
+          <SectionHeading title="What I work with" />
 
           <Grid container spacing={{ xs: 4, md: 3 }}>
             {skills.map((skill) => (
@@ -357,7 +349,7 @@ export default function Home() {
             <Typography variant="h2" sx={{ fontSize: { xs: "1.8rem", md: "2.2rem" }, mb: 1 }}>
               Let&apos;s talk
             </Typography>
-            <Typography sx={{ color: "#cbd5e1", maxWidth: 520 }}>
+            <Typography sx={{ color: "#cfcbe6", maxWidth: 520 }}>
               Have a question or a project in mind? Send me a message and I&apos;ll get back to you.
             </Typography>
           </Box>

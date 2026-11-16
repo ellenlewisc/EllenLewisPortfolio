@@ -68,7 +68,7 @@ export default function Projects() {
         align="center"
         sx={{
           mb: 4,
-          color: "#0f172a",
+          color: "#221d3d",
           fontSize: "2.8rem",
           fontWeight: "bold",
           letterSpacing: "0.05em",
@@ -133,7 +133,7 @@ export default function Projects() {
                       key={tech}
                       variant="caption"
                       sx={{
-                        backgroundColor: "#0f172a",
+                        backgroundColor: "#221d3d",
                         color: "white",
                         px: 1,
                         py: 0.5,
@@ -153,7 +153,7 @@ export default function Projects() {
                   component={Link}
                   href={`/projects/${project.id}`}
                   sx={{
-                    color: "#0f172a",
+                    color: "#221d3d",
                     "&:hover": {
                       backgroundColor: "rgba(15, 23, 42, 0.06)",
                     },

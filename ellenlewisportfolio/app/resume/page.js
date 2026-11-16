@@ -37,7 +37,7 @@ export default function ResumePage() {
                     borderColor: "divider",
                     borderRadius: 3,
                     overflow: "hidden",
-                    bgcolor: "#f8fafc",
+                    bgcolor: "bloom.main",
                     boxShadow: "0 20px 40px -28px rgba(15,23,42,0.35)",
                 }}
             >

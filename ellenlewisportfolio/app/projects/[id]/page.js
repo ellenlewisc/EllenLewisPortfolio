@@ -97,7 +97,7 @@ export default async function ProjectDetail({ params }) {
           startIcon={<ArrowBack />}
           sx={{
             mb: 2,
-            color: "#0f172a",
+            color: "#221d3d",
             "&:hover": { backgroundColor: "rgba(15, 23, 42, 0.06)" },
           }}
         >
@@ -117,8 +117,8 @@ export default async function ProjectDetail({ params }) {
               target="_blank"
               rel="noopener noreferrer"
               sx={{
-                backgroundColor: "#0f172a",
-                "&:hover": { backgroundColor: "#1e293b" },
+                backgroundColor: "#221d3d",
+                "&:hover": { backgroundColor: "#352d5c" },
               }}
             >
               Live Site
@@ -132,11 +132,11 @@ export default async function ProjectDetail({ params }) {
               target="_blank"
               rel="noopener noreferrer"
               sx={{
-                borderColor: "#0f172a",
-                color: "#0f172a",
+                borderColor: "#221d3d",
+                color: "#221d3d",
                 "&:hover": {
                   backgroundColor: "rgba(15, 23, 42, 0.06)",
-                  borderColor: "#1e293b",
+                  borderColor: "#352d5c",
                 },
               }}
             >
@@ -151,9 +151,9 @@ export default async function ProjectDetail({ params }) {
               key={tech}
               label={tech}
               sx={{
-                backgroundColor: "#0f172a",
+                backgroundColor: "#221d3d",
                 color: "white",
-                "&:hover": { backgroundColor: "#1e293b" },
+                "&:hover": { backgroundColor: "#352d5c" },
               }}
             />
           ))}
