@@ -97,8 +97,8 @@ export default async function ProjectDetail({ params }) {
           startIcon={<ArrowBack />}
           sx={{
             mb: 2,
-            color: "#ff69b4",
-            "&:hover": { backgroundColor: "rgba(255, 105, 180, 0.1)" },
+            color: "#0f172a",
+            "&:hover": { backgroundColor: "rgba(15, 23, 42, 0.06)" },
           }}
         >
           Back to Projects
@@ -117,8 +117,8 @@ export default async function ProjectDetail({ params }) {
               target="_blank"
               rel="noopener noreferrer"
               sx={{
-                backgroundColor: "#ff69b4",
-                "&:hover": { backgroundColor: "#e91e63" },
+                backgroundColor: "#0f172a",
+                "&:hover": { backgroundColor: "#1e293b" },
               }}
             >
               Live Site
@@ -132,11 +132,11 @@ export default async function ProjectDetail({ params }) {
               target="_blank"
               rel="noopener noreferrer"
               sx={{
-                borderColor: "#ff69b4",
-                color: "#ff69b4",
+                borderColor: "#0f172a",
+                color: "#0f172a",
                 "&:hover": {
-                  backgroundColor: "rgba(255, 105, 180, 0.1)",
-                  borderColor: "#e91e63",
+                  backgroundColor: "rgba(15, 23, 42, 0.06)",
+                  borderColor: "#1e293b",
                 },
               }}
             >
@@ -151,9 +151,9 @@ export default async function ProjectDetail({ params }) {
               key={tech}
               label={tech}
               sx={{
-                backgroundColor: "#ff69b4",
+                backgroundColor: "#0f172a",
                 color: "white",
-                "&:hover": { backgroundColor: "#e91e63" },
+                "&:hover": { backgroundColor: "#1e293b" },
               }}
             />
           ))}
