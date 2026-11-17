@@ -7,8 +7,11 @@ import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import Link from "next/link";
 import { socialLinks } from "./components/socialLinks";
-import { BrowserWindow, Monitor, Scene, ScreenImage } from "./components/deviceMockup";
+import { Monitor, Scene } from "./components/deviceMockup";
 import FlightTrackingScreen from "./components/flightTrackingScreen";
+import EnergyDashboardScreen from "./components/energyDashboardScreen";
+import TrainingDashboardScreen from "./components/trainingDashboardScreen";
+import BidrPhonesScreen from "./components/bidrPhonesScreen";
 
 const experience = [
   {
@@ -85,7 +88,7 @@ const work = [
     description:
       "Led the full replacement of the Nova Scotia Teachers Union's legacy membership registry, managing 40,000+ member records. Admin and member portals with finely scoped role permissions, single sign-on with nstu.ca, a communication centre for bulk email and SMS, and mail-merge document generation to PDF.",
     tech: [".NET", "C#", "SQL", "Hangfire", "Tailwind"],
-    visual: { screenshot: "/images/work/nstu-registry.webp", tone: "dark", wall: "linear-gradient(160deg, #2c63a6 0%, #114787 55%, #0b3266 100%)" },
+    visual: { screenshot: "/images/work/nstu-registry.webp" },
     caseStudy: "https://immediac.com/our-work/nstu",
   },
   {
@@ -95,7 +98,7 @@ const work = [
     description:
       "A conference registration and management platform for the Nova Scotia Teachers Union. Staff build each conference with fees, workshop sessions, custom registration questions and seat limits, or have AI generate the full setup from a filled-in template. Members register, rank their workshop choices and pay through Stripe, while the platform handles workshop moves, refunds and publishing to nstu.ca.",
     tech: [".NET", "C#", "Stripe", "Hangfire", "AI"],
-    visual: { screenshot: "/images/work/nstu-conference.webp", tone: "dark", wall: "linear-gradient(160deg, #ec6d62 0%, #da3d34 55%, #b72d26 100%)" },
+    visual: { screenshot: "/images/work/nstu-conference.webp" },
     caseStudy: "https://immediac.com/our-work/nstu",
   },
   {
@@ -105,7 +108,7 @@ const work = [
     description:
       "A data management and visualization platform that replaced an energy arbitrage client's legacy Access database and imported all of their existing data. A built-in MCP server lets AI clients such as ChatGPT retrieve transactions and run daily data imports.",
     tech: [".NET", "C#", "MCP Servers", "AI"],
-    visual: { screenshot: "/images/work/energy-trading.webp", tone: "dark", wall: "linear-gradient(160deg, #1f6fae 0%, #00457c 55%, #002f56 100%)" },
+    visual: { energyDashboard: true },
     caseStudy: "https://immediac.com/our-work/energy-atlantica",
   },
   {
@@ -115,7 +118,7 @@ const work = [
     description:
       "A .NET Web API connecting Cougar Helicopters' VMO flight management system to their internal systems, synchronizing flight data in real time with legacy display and monitoring screens.",
     tech: [".NET", "C#", "SQL", "REST APIs"],
-    visual: { flightMap: true, tone: "dark", wall: "linear-gradient(160deg, #e2a865 0%, #c08f55 50%, #8e5f31 100%)" },
+    visual: { flightMap: true },
   },
   {
     title: "Pilot Training Platform",
@@ -124,6 +127,7 @@ const work = [
     description:
       "A custom training platform that replaced legacy systems for tracking pilot and engineer certifications, later expanded to all company training and related data, with role-based authentication.",
     tech: [".NET", "C#", "Next.js", "React", "SQL", "OpenIddict"],
+    visual: { trainingDashboard: true },
   },
   {
     title: "BIDR Platform",
@@ -132,6 +136,7 @@ const work = [
     description:
       "A marketplace-style app for iOS, Android and the web, built as one of two developers, where customers describe a job to an AI assistant that turns the conversation into a structured service request. Local providers browse matching requests nearby, AI moderation screens every post, and customers choose which contact details to share.",
     tech: ["React Native", "Expo", ".NET", "C#", "Azure OpenAI"],
+    visual: { bidrPhones: true },
   },
 ];
 
@@ -511,30 +516,69 @@ function ExperienceTimeline({ jobs }) {
   );
 }
 
-function ProjectVisual({ project, index }) {
+function ProjectVisual({ project }) {
   const { visual } = project;
   if (!visual) return null;
 
-  const scene = (
-    <Scene wall={visual.wall} tone={visual.tone} sx={{ alignItems: "center", py: { xs: "7%", md: "6.5%" } }}>
-      <BrowserWindow width={{ xs: "90%", md: "80%" }} tilt={index % 2 === 0 ? "left" : "right"} label={project.title}>
-        {visual.flightMap ? <FlightTrackingScreen /> : <ScreenImage src={visual.screenshot} alt={`${project.title} screenshot`} />}
-      </BrowserWindow>
-    </Scene>
+  const media = (
+    <Box
+      sx={{
+        position: "relative",
+        aspectRatio: "16 / 10",
+        overflow: "hidden",
+        borderRadius: { xs: "14px", md: "18px" },
+        border: 1,
+        borderColor: "divider",
+        bgcolor: visual.flightMap ? "#0b1726" : "#ffffff",
+        boxShadow: "0 24px 40px -30px rgba(42,29,27,0.45)",
+        "& .media": { transition: "transform 600ms cubic-bezier(.2,.7,.2,1)", transformOrigin: "left top" },
+        "&:hover .media": { transform: "scale(1.03)" },
+        "@media (prefers-reduced-motion: reduce)": { "& .media": { transition: "none" } },
+      }}
+    >
+      <Box className="media" sx={{ height: "100%" }}>
+        {visual.flightMap ? (
+          <FlightTrackingScreen />
+        ) : visual.energyDashboard ? (
+          <EnergyDashboardScreen />
+        ) : visual.trainingDashboard ? (
+          <TrainingDashboardScreen />
+        ) : visual.bidrPhones ? (
+          <BidrPhonesScreen />
+        ) : (
+          <Box
+            component="img"
+            src={visual.screenshot}
+            alt={`${project.title} screenshot`}
+            loading="lazy"
+            sx={{ display: "block", width: "100%", height: "100%", objectFit: "cover", objectPosition: "left top" }}
+          />
+        )}
+      </Box>
+    </Box>
   );
 
-  if (!project.caseStudy) return scene;
-
   return (
-    <Box
-      component="a"
-      href={project.caseStudy}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${project.title} case study on immediac.com`}
-      sx={{ display: "block", borderRadius: { xs: "16px", md: "28px" }, "&:focus-visible": { outline: "3px solid #a35d66", outlineOffset: 4 } }}
-    >
-      {scene}
+    <Box>
+      {project.caseStudy ? (
+        <Box
+          component="a"
+          href={project.caseStudy}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`View ${project.title} on immediac.com`}
+          sx={{ display: "block", borderRadius: { xs: "16px", md: "20px" }, "&:focus-visible": { outline: "3px solid #a35d66", outlineOffset: 4 } }}
+        >
+          {media}
+        </Box>
+      ) : (
+        media
+      )}
+      {!visual.screenshot && (
+        <Typography variant="caption" color="text.secondary" component="p" sx={{ mt: 0.75 }}>
+          Illustrative mockup, not the actual product
+        </Typography>
+      )}
     </Box>
   );
 }
@@ -639,6 +683,7 @@ export default function Home() {
           <Scene
             wall="radial-gradient(80% 70% at 100% 0%, rgba(181,114,122,0.28), transparent 65%), linear-gradient(160deg, #4a332d 0%, #2a1d1b 100%)"
             tone="dark"
+            sunlight
             desk="linear-gradient(180deg, #3d2b27 0%, #2a1d1b 100%)"
             sx={{ pt: { xs: "9%", md: "5.5%" }, pb: { xs: "5%", md: "3.5%" } }}
           >
@@ -694,53 +739,54 @@ export default function Home() {
         <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
           <SectionHeading title="Recent projects" />
 
-          <Stack spacing={{ xs: 8, md: 12 }}>
-            {work.map((project, index) => (
-              <Box key={project.title}>
-                <ProjectVisual project={project} index={index} />
-                <Grid container columnSpacing={6} rowSpacing={2} sx={{ mt: project.visual ? { xs: 3, md: 4 } : 0 }}>
-                  <Grid size={{ xs: 12, md: 5 }}>
-                    <Stack direction="row" justifyContent="space-between" spacing={2} sx={{ mb: 1 }}>
-                      <Typography variant="body2" color="secondary" sx={{ fontWeight: 600 }}>
-                        {project.context}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary" sx={{ whiteSpace: "nowrap" }}>
-                        {project.year}
-                      </Typography>
-                    </Stack>
-                    <Typography variant="h5" component="h3" sx={{ fontWeight: 600, fontSize: { md: "1.75rem" } }}>
-                      {project.title}
+          <Grid container columnSpacing={{ xs: 0, md: 5 }} rowSpacing={{ xs: 7, md: 9 }}>
+            {work.map((project) => (
+              <Grid key={project.title} size={{ xs: 12, md: 6 }}>
+                <ProjectVisual project={project} />
+                <Box sx={{ mt: project.visual ? 2.5 : 0 }}>
+                  <Stack direction="row" justifyContent="space-between" spacing={2} sx={{ mb: 0.75 }}>
+                    <Typography variant="body2" color="secondary" sx={{ fontWeight: 600 }}>
+                      {project.context}
                     </Typography>
-                    {project.caseStudy && (
-                      <Box
-                        component="a"
-                        href={project.caseStudy}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        sx={{
-                          display: "inline-block",
-                          mt: 1.5,
-                          color: "secondary.main",
-                          fontWeight: 600,
-                          textDecoration: "underline",
-                          textUnderlineOffset: "4px",
-                          "&:hover": { color: "primary.main" },
-                        }}
-                      >
-                        Case study on immediac.com
-                      </Box>
-                    )}
-                  </Grid>
-                  <Grid size={{ xs: 12, md: 7 }}>
-                    <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
-                      {project.description}
+                    <Typography variant="body2" color="text.secondary" sx={{ whiteSpace: "nowrap" }}>
+                      {project.year}
                     </Typography>
-                    <TechList items={project.tech} />
-                  </Grid>
-                </Grid>
-              </Box>
+                  </Stack>
+                  <Typography variant="h5" component="h3" sx={{ fontWeight: 600 }}>
+                    {project.title}
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ lineHeight: 1.7, mt: 1.25 }}>
+                    {project.description}
+                  </Typography>
+                  <TechList items={project.tech} />
+                  {project.caseStudy && (
+                    <Box
+                      component="a"
+                      href={project.caseStudy}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${project.title} on immediac.com`}
+                      sx={{
+                        display: "inline-block",
+                        mt: 2,
+                        color: "secondary.main",
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        textUnderlineOffset: "4px",
+                        "&:hover": { color: "primary.main" },
+                      }}
+                    >
+                      More about this project on immediac.com <Box component="span" aria-hidden="true">↗</Box>
+                    </Box>
+                  )}
+                </Box>
+              </Grid>
             ))}
-          </Stack>
+          </Grid>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: { xs: 6, md: 8 }, maxWidth: 640 }}>
+            NSTU screens are from ImmediaC&apos;s published case study. All other project images are illustrative mockups, not actual
+            product screens or client data.
+          </Typography>
         </Container>
       </Box>
 

@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 
-const aluminium = "linear-gradient(90deg, #a7a7ad 0%, #e4e4e8 22%, #f4f4f6 50%, #d6d6db 78%, #9d9da3 100%)";
+const brushedAluminium =
+  "linear-gradient(90deg, #8f9095 0%, #c9cacf 14%, #e9eaee 34%, #f6f6f8 50%, #e4e5e9 66%, #c3c4c9 86%, #8c8d92 100%)";
 
 export function Monitor({ children, width = "76%", screenRatio = "16 / 10", sx }) {
   return (
@@ -10,131 +11,96 @@ export function Monitor({ children, width = "76%", screenRatio = "16 / 10", sx }
     >
       <Box
         sx={{
-          background: "linear-gradient(180deg, #2b2b2f 0%, #121214 100%)",
-          borderRadius: { xs: "8px", md: "16px" },
-          p: "1.4%",
-          boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.08), 0 50px 70px -35px rgba(20,10,40,0.6)",
+          position: "relative",
+          zIndex: 1,
+          p: "0.35%",
+          borderRadius: { xs: "10px", md: "20px" },
+          background: "linear-gradient(180deg, #f2f2f4 0%, #c9cace 45%, #a9aaaf 100%)",
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.25), 0 2px 3px rgba(0,0,0,0.25), 0 28px 40px -18px rgba(15,8,6,0.55), 0 70px 90px -50px rgba(15,8,6,0.6)",
         }}
       >
         <Box
           sx={{
             position: "relative",
-            aspectRatio: screenRatio,
-            overflow: "hidden",
-            borderRadius: { xs: "3px", md: "5px" },
-            bgcolor: "#ffffff",
-            containerType: "inline-size",
+            p: "1.15%",
+            borderRadius: { xs: "8px", md: "17px" },
+            background: "linear-gradient(180deg, #161618 0%, #0a0a0b 100%)",
+            boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 1px rgba(255,255,255,0.08)",
           }}
         >
-          {children}
           <Box
             aria-hidden="true"
             sx={{
               position: "absolute",
-              inset: 0,
-              background: "linear-gradient(118deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.04) 30%, transparent 31%)",
-              pointerEvents: "none",
+              top: "0.45%",
+              left: "50%",
+              transform: "translate(-50%, 0)",
+              width: { xs: 3, md: 6 },
+              height: { xs: 3, md: 6 },
+              borderRadius: "50%",
+              background: "radial-gradient(circle at 35% 35%, #3a4a5c 0%, #101418 60%)",
+              boxShadow: "0 0 0 1px rgba(255,255,255,0.05)",
             }}
           />
-        </Box>
-      </Box>
-      <Box
-        aria-hidden="true"
-        sx={{ width: "15%", aspectRatio: "1.25 / 1", mx: "auto", background: aluminium, clipPath: "polygon(10% 0, 90% 0, 100% 100%, 0 100%)" }}
-      />
-      <Box
-        aria-hidden="true"
-        sx={{
-          position: "relative",
-          width: "30%",
-          aspectRatio: "16 / 1",
-          mx: "auto",
-          background: aluminium,
-          borderRadius: "2px 2px 5px 5px",
-          boxShadow: "0 1px 0 rgba(255,255,255,0.6) inset",
-          "&::after": {
-            content: '""',
-            position: "absolute",
-            left: "-35%",
-            right: "-35%",
-            top: "40%",
-            height: "300%",
-            background: "radial-gradient(closest-side, rgba(20,10,40,0.38), transparent)",
-            zIndex: -1,
-          },
-        }}
-      />
-    </Box>
-  );
-}
-
-export function BrowserWindow({ children, label, tilt = "left", width = "82%" }) {
-  const rotate = tilt === "left" ? "rotateY(-12deg) rotateX(7deg) rotateZ(1.5deg)" : "rotateY(12deg) rotateX(7deg) rotateZ(-1.5deg)";
-
-  return (
-    <Box sx={{ width, mx: "auto", perspective: "2200px", position: "relative", zIndex: 1 }}>
-      <Box
-        className="browser"
-        sx={{
-          borderRadius: { xs: "8px", md: "14px" },
-          overflow: "hidden",
-          bgcolor: "#ffffff",
-          transform: { xs: "none", md: rotate },
-          transformOrigin: "center",
-          transition: "transform 700ms cubic-bezier(.2,.7,.2,1)",
-          boxShadow: "0 2px 0 rgba(255,255,255,0.5) inset, 0 60px 90px -40px rgba(10,20,15,0.55), 0 20px 30px -20px rgba(10,20,15,0.35)",
-          "@media (prefers-reduced-motion: reduce)": { transition: "none" },
-        }}
-      >
-        <Box
-          aria-hidden="true"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: { xs: "5px", md: "8px" },
-            px: { xs: 1.25, md: 2 },
-            height: { xs: 22, md: 38 },
-            bgcolor: "#f1f3ef",
-            borderBottom: "1px solid #e1e6dd",
-          }}
-        >
-          {["#ff5f57", "#febc2e", "#28c840"].map((c) => (
-            <Box key={c} sx={{ width: { xs: 7, md: 11 }, height: { xs: 7, md: 11 }, borderRadius: "50%", bgcolor: c }} />
-          ))}
-          {label && (
+          <Box
+            sx={{
+              position: "relative",
+              aspectRatio: screenRatio,
+              overflow: "hidden",
+              borderRadius: { xs: "2px", md: "4px" },
+              bgcolor: "#ffffff",
+              containerType: "inline-size",
+            }}
+          >
+            {children}
             <Box
+              aria-hidden="true"
               sx={{
-                mx: "auto",
-                px: { xs: 1.5, md: 3 },
-                py: { xs: "1px", md: "4px" },
-                borderRadius: 999,
-                bgcolor: "#ffffff",
-                border: "1px solid #e1e6dd",
-                color: "#56605a",
-                fontSize: { xs: "0.55rem", md: "0.78rem" },
-                fontWeight: 500,
-                whiteSpace: "nowrap",
+                position: "absolute",
+                inset: 0,
+                pointerEvents: "none",
+                background:
+                  "linear-gradient(112deg, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.05) 26%, rgba(255,255,255,0) 26.5%), linear-gradient(180deg, rgba(0,0,0,0) 70%, rgba(0,0,0,0.05) 100%)",
               }}
-            >
-              {label}
-            </Box>
-          )}
+            />
+          </Box>
         </Box>
-        <Box sx={{ position: "relative", aspectRatio: "16 / 10", overflow: "hidden" }}>{children}</Box>
+      </Box>
+
+      <Box aria-hidden="true" sx={{ position: "relative", width: "17%", mx: "auto", mt: "-0.6%" }}>
+        <Box
+          sx={{
+            aspectRatio: "1 / 0.82",
+            background: brushedAluminium,
+            borderRadius: "0 0 2px 2px",
+            boxShadow: "inset 0 18px 22px -10px rgba(0,0,0,0.45), inset 1px 0 0 rgba(255,255,255,0.35), inset -1px 0 0 rgba(0,0,0,0.15)",
+          }}
+        />
+        <Box
+          sx={{
+            position: "relative",
+            width: "190%",
+            ml: "-45%",
+            aspectRatio: "26 / 1",
+            borderRadius: "3px 3px 50% 50% / 3px 3px 100% 100%",
+            background: "linear-gradient(180deg, #f4f4f6 0%, #d3d4d8 45%, #9a9ba0 100%)",
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.95), 0 1px 1px rgba(0,0,0,0.25)",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              left: "-12%",
+              right: "-12%",
+              top: "55%",
+              height: "320%",
+              background: "radial-gradient(closest-side, rgba(10,5,4,0.5), rgba(10,5,4,0.18) 55%, transparent)",
+              filter: "blur(2px)",
+              zIndex: -1,
+            },
+          }}
+        />
       </Box>
     </Box>
-  );
-}
-
-export function ScreenImage({ src, alt }) {
-  return (
-    <Box
-      component="img"
-      src={src}
-      alt={alt}
-      loading="lazy"
-      sx={{ display: "block", width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
-    />
   );
 }
 
@@ -143,7 +109,27 @@ const sceneLight = {
   dark: { beam: 0.06, glow: 0.16, rim: 0.12 },
 };
 
-export function Scene({ wall, desk, tone = "light", sx, children }) {
+function WindowLight() {
+  return (
+    <Box
+      aria-hidden="true"
+      sx={{
+        position: "absolute",
+        inset: "-10%",
+        zIndex: 0,
+        pointerEvents: "none",
+        mixBlendMode: "screen",
+        filter: "blur(22px)",
+        opacity: 0.55,
+        background:
+          "linear-gradient(118deg, transparent 8%, rgba(255,214,190,0.32) 12%, rgba(255,214,190,0.32) 20%, transparent 24%, transparent 30%, rgba(255,214,190,0.26) 34%, rgba(255,214,190,0.26) 41%, transparent 45%, transparent 63%, rgba(255,214,190,0.18) 67%, rgba(255,214,190,0.18) 72%, transparent 76%)",
+        maskImage: "linear-gradient(180deg, #000 0%, #000 55%, transparent 92%)",
+      }}
+    />
+  );
+}
+
+export function Scene({ wall, desk, tone = "light", sunlight = false, sx, children }) {
   const { beam, glow, rim } = sceneLight[tone];
 
   return (
@@ -169,11 +155,11 @@ export function Scene({ wall, desk, tone = "light", sx, children }) {
           zIndex: 0,
         },
         "&:hover .monitor": { transform: "translateY(-6px)" },
-        "&:hover .browser": { transform: "none" },
         "@media (prefers-reduced-motion: reduce)": { "&:hover .monitor": { transform: "none" } },
         ...sx,
       }}
     >
+      {sunlight && <WindowLight />}
       {children}
     </Box>
   );
