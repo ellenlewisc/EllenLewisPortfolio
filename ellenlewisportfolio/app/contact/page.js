@@ -54,8 +54,7 @@ export default function Contact() {
             Get in touch
           </Typography>
           <Typography color="text.secondary" sx={{ fontSize: "1.1rem", lineHeight: 1.75, mb: 4 }}>
-            Have a question, a project in mind, or just want to connect? Send me a message and
-            I&apos;ll get back to you as soon as I can.
+            Want to connect? Send me a message and I&apos;ll get back to you as soon as I can.
           </Typography>
 
           <Stack spacing={1.5}>

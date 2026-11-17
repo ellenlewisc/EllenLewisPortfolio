@@ -49,14 +49,47 @@ const experience = [
   },
 ];
 
+const volunteering = [
+  {
+    role: "Volleyball Coach",
+    company: "Nova Knights U16 girls",
+    dates: "2026 – Present",
+    description:
+      "Plan and run practices and set goals for the season, coordinating schedules, games and logistics with players, parents and the club.",
+  },
+  {
+    role: "Wish Volunteer",
+    company: "Make-A-Wish",
+    dates: "2025 – Present",
+    description:
+      "Plan and coordinate wish reveals for children and their families, working with families and Make-A-Wish staff on timing, logistics and details.",
+  },
+];
+
 const work = [
+  {
+    title: "NSTU Member Registry",
+    context: "ImmediaC client project",
+    year: "2026",
+    description:
+      "Led the full replacement of the Nova Scotia Teachers Union's legacy membership registry, managing 40,000+ member records. Admin and member portals with finely scoped role permissions, single sign-on with nstu.ca, a communication centre for bulk email and SMS, and mail-merge document generation to PDF.",
+    tech: [".NET", "C#", "SQL", "Hangfire", "Tailwind"],
+  },
+  {
+    title: "BIDR Platform",
+    context: "ImmediaC client project",
+    year: "2026",
+    description:
+      "A marketplace-style app for iOS, Android and the web, built as one of two developers, where customers describe a job to an AI assistant that turns the conversation into a structured service request. Local providers browse matching requests nearby, AI moderation screens every post, and customers choose which contact details to share.",
+    tech: ["React Native", "Expo", ".NET", "C#", "Azure OpenAI"],
+  },
   {
     title: "NSTU Conference Platform",
     context: "ImmediaC client project",
     year: "2026",
     description:
-      "A live web application for 40,000+ combined teachers, administrators and other members of the Nova Scotia Teachers Union, with admin and member portals for conference setup, registration with Stripe payments, and capacity management.",
-    tech: [".NET", "C#", "REST APIs", "Stripe"],
+      "A conference registration and management platform for the Nova Scotia Teachers Union. Staff build each conference with fees, workshop sessions, custom registration questions and seat limits, or have AI generate the full setup from a filled-in template. Members register, rank their workshop choices and pay through Stripe, while the platform handles workshop moves, refunds and publishing to nstu.ca.",
+    tech: [".NET", "C#", "Stripe", "Hangfire", "AI"],
   },
   {
     title: "Energy Trading Platform",
@@ -119,6 +152,73 @@ function TechList({ items }) {
   );
 }
 
+function SideEntry({ dates, title, subtitle, description, isFirst }) {
+  return (
+    <Box sx={{ py: 3, borderTop: isFirst ? 0 : 1, borderColor: "divider" }}>
+      <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 500, mb: 0.5 }}>
+        {dates}
+      </Typography>
+      <Typography variant="h6" component="h4" sx={{ fontWeight: 600, lineHeight: 1.3 }}>
+        {title}
+      </Typography>
+      <Typography color="text.secondary">{subtitle}</Typography>
+      {description && (
+        <Typography color="text.secondary" sx={{ lineHeight: 1.7, mt: 1.5 }}>
+          {description}
+        </Typography>
+      )}
+    </Box>
+  );
+}
+
+function SideColumn({ title, children }) {
+  return (
+    <Box sx={{ pt: 3, borderTop: 3, borderColor: "secondary.main" }}>
+      <Typography variant="overline" component="h3" color="secondary" sx={{ fontWeight: 600 }}>
+        {title}
+      </Typography>
+      {children}
+    </Box>
+  );
+}
+
+function EducationAndVolunteering() {
+  return (
+    <Box component="section" id="education" sx={{ bgcolor: "bloom.main", borderTop: 1, borderColor: "divider" }}>
+      <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
+        <SectionHeading title="Education & volunteering" />
+
+        <Grid container columnSpacing={6} rowSpacing={{ xs: 6, md: 0 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <SideColumn title="Education">
+              <SideEntry
+                isFirst
+                dates="2018 – 2023"
+                title="Bachelor of Computer Science"
+                subtitle="Dalhousie University, Halifax, NS"
+              />
+            </SideColumn>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <SideColumn title="Volunteering">
+              {volunteering.map((item, index) => (
+                <SideEntry
+                  key={item.role}
+                  isFirst={index === 0}
+                  dates={item.dates}
+                  title={item.role}
+                  subtitle={item.company}
+                  description={item.description}
+                />
+              ))}
+            </SideColumn>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -163,7 +263,7 @@ export default function Home() {
             </Grid>
             <Grid size={{ xs: 12, md: 5 }}>
               <Typography color="text.secondary" sx={{ fontSize: { xs: "1.05rem", md: "1.15rem" }, lineHeight: 1.7, maxWidth: 460 }}>
-                  I&apos;m a software developer at{" "}
+                  Software developer at{" "}
                   <Box
                     component="a"
                     href="https://immediac.com"
@@ -180,7 +280,7 @@ export default function Home() {
                   >
                     ImmediaC
                   </Box>{" "}
-                  in Halifax, delivering client solutions from first requirements through launch.
+                  in Halifax, delivering client solutions for over 5 years.
               </Typography>
 
               <Stack direction="row" flexWrap="wrap" useFlexGap spacing={1.5} alignItems="center" sx={{ mt: 3.5 }}>
@@ -251,23 +351,6 @@ export default function Home() {
                 </Grid>
               </Grid>
             ))}
-
-            <Grid container spacing={{ xs: 1, md: 4 }} sx={{ py: 4, borderTop: 1, borderColor: "divider" }}>
-              <Grid size={{ xs: 12, md: 3 }}>
-                <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 500, pt: { md: 0.5 } }}>
-                  2018 – 2023
-                </Typography>
-              </Grid>
-              <Grid size={{ xs: 12, md: 9 }}>
-                <Typography variant="overline" component="p" color="secondary">
-                  Education
-                </Typography>
-                <Typography variant="h6" component="h3" sx={{ fontWeight: 600, lineHeight: 1.3 }}>
-                  Bachelor of Computer Science
-                </Typography>
-                <Typography color="text.secondary">Dalhousie University, Halifax, NS</Typography>
-              </Grid>
-            </Grid>
           </Stack>
         </Container>
       </Box>
@@ -331,6 +414,8 @@ export default function Home() {
           </Grid>
         </Container>
       </Box>
+
+      <EducationAndVolunteering />
 
       <Box component="section" sx={{ bgcolor: "primary.main", color: "primary.contrastText" }}>
         <Container
