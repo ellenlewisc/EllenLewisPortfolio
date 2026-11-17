@@ -136,10 +136,10 @@ const work = [
 ];
 
 const skills = [
-  { group: "Backend", items: ["C#", ".NET", "REST APIs", "SQL"] },
-  { group: "Frontend", items: ["React", "Next.js", "Vue.js", "JavaScript"] },
+  { group: "Languages", items: ["C#", "JavaScript", "SQL", "Python", "Java"] },
+  { group: "Frontend", items: ["React", "Next.js", "Vue.js"] },
+  { group: "Backend & tools", items: [".NET", "REST APIs", "Git"] },
   { group: "AI & integrations", items: ["MCP servers", "AI integrations", "Stripe", "Third-party APIs"] },
-  { group: "Tools & languages", items: ["Git", "Python", "Java"] },
 ];
 
 function SectionHeading({ title }) {
