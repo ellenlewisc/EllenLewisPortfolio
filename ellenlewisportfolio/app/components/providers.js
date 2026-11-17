@@ -8,12 +8,12 @@ const displayFont = "var(--font-display), Georgia, serif";
 const theme = createTheme({
   palette: {
     mode: "light",
-    primary: { main: "#221d3d", contrastText: "#ffffff" },
-    secondary: { main: "#4b3f9e", light: "#dcd8f2", contrastText: "#ffffff" },
-    text: { primary: "#221d3d", secondary: "#57536e" },
-    divider: "#e3e1ee",
+    primary: { main: "#2a1d1b", contrastText: "#ffffff" },
+    secondary: { main: "#a35d66", light: "#f3e2e2", contrastText: "#ffffff" },
+    text: { primary: "#2a1d1b", secondary: "#635653" },
+    divider: "#ece3e0",
     background: { default: "#ffffff", paper: "#ffffff" },
-    bloom: { main: "#f1f0f8" },
+    bloom: { main: "#f8f2f0" },
   },
   shape: { borderRadius: 10 },
   typography: {

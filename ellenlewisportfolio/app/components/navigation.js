@@ -45,7 +45,7 @@ export default function Navigation({ children }) {
         position="fixed"
         elevation={0}
         sx={{
-          backgroundColor: "rgba(255,255,255,0.85)",
+          backgroundColor: "rgba(248,242,240,0.9)",
           backdropFilter: "blur(12px)",
           borderBottom: 1,
           borderColor: "divider",
