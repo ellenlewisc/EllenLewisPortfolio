@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ellen Lewis Portfolio
 
-## Getting Started
+**Live site:** [ellenlewis.netlify.app](https://ellenlewis.netlify.app)
 
-First, run the development server:
+![Ellen Lewis portfolio home page](docs/screenshot.png)
+
+My personal portfolio site covering my experience as a software developer, recent projects, education, volunteering and skills, and has a contact form.
+
+## Tech stack
+
+- **Next.js 15** (App Router), exported as a fully static site
+- **React 19**
+- **MUI 7** with Emotion, styled through the `sx` prop and a custom espresso and rose theme
+- **Netlify** for hosting and form handling
+- **pnpm** for packages
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+To build the static site:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build
+```
 
-## Learn More
+The output goes to `out/`.
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/
+  page.js                  Home page: experience, projects, education, skills
+  contact/page.js          Contact form
+  layout.js                Fonts, metadata and the site shell
+  icon.svg                 Favicon
+  components/
+    providers.js           MUI theme
+    navigation.js          Header and footer
+    deviceMockup.js        Monitor and scene used in the hero
+    experienceTimeline.js  Clickable work timeline
+    techList.js            Technology tags
+    *Screen.js             Code-drawn project mockups
+public/
+  images/                  Profile photo and project screenshots
+  __forms.html             Hidden form so Netlify can detect the contact form
+  _headers                 Netlify response headers
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Most content (experience, projects, volunteering, skills) is stored as data arrays at the top of `app/page.js`. Edit those arrays to update the site.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The site deploys to Netlify as a static export (`output: "export"` in `next.config.mjs`). The contact form posts to `/__forms.html`, which Netlify Forms picks up at build time.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Client work
+
+Client projects were built at [ImmediaC](https://immediac.com), which owns that work, and each one links to ImmediaC's case study where available. The NSTU screens come from ImmediaC's published case study and use test data. All other project images are illustrative mockups drawn in code, not real product screens or client data.
