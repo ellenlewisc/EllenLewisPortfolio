@@ -2,7 +2,7 @@
 
 **Live site:** [ellenlewis.netlify.app](https://ellenlewis.netlify.app)
 
-[![Ellen Lewis portfolio home page](ellenlewisportfolio/public/images/screenshot.png)]
+![Ellen Lewis portfolio home page](ellenlewisportfolio/docs/screenshot.png)
 
 My personal portfolio site covering my experience as a software developer, recent projects, education, volunteering and skills, and has a contact form.
 
