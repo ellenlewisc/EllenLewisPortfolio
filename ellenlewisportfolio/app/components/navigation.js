@@ -20,7 +20,6 @@ const navLinks = [
   { href: "/#experience", label: "Experience" },
   { href: "/#work", label: "Work" },
   { href: "/#skills", label: "Skills" },
-  { href: "/resume", label: "Resume" },
 ];
 
 export default function Navigation({ children }) {

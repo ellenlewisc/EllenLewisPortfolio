@@ -1,10 +1,5 @@
-import { Box, Button, Chip, Container, Grid, IconButton, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, IconButton, Stack, Typography } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import CodeRoundedIcon from "@mui/icons-material/CodeRounded";
-import FlightTakeoffRoundedIcon from "@mui/icons-material/FlightTakeoffRounded";
-import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
-import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
-import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import Link from "next/link";
 import { socialLinks } from "./components/socialLinks";
 import { Monitor, Scene } from "./components/deviceMockup";
@@ -12,6 +7,8 @@ import FlightTrackingScreen from "./components/flightTrackingScreen";
 import EnergyDashboardScreen from "./components/energyDashboardScreen";
 import TrainingDashboardScreen from "./components/trainingDashboardScreen";
 import BidrPhonesScreen from "./components/bidrPhonesScreen";
+import TechList from "./components/techList";
+import ExperienceTimeline from "./components/experienceTimeline";
 
 const experience = [
   {
@@ -22,12 +19,15 @@ const experience = [
     dates: "Sept 2021 – Present",
     points: [
       "Design, build and maintain client websites and custom web applications, from initial requirements through deployment.",
-      "Work with the team to deliver responsive, accessible solutions tailored to each client's needs.",
+      "Work both independently and as part of the team, owning projects end to end or collaborating on larger systems.",
+      "Work directly with clients across sectors (a teachers' union, energy trading, senior living, retail) to define scope and timelines, and turn their needs into clear, buildable requirements.",
+      "Deliver third-party API integrations such as Stripe payments, Yardi CRM and AI tools.",
+      "Write project plans before building and testing documentation before launch, so the team and client share one understanding of the approach and can give feedback early.",
     ],
     tech: [".NET", "C#", "SQL", "JavaScript"],
   },
   {
-    role: "Software Developer (Contract)",
+    role: "Software Developer (Contract through ImmediaC)",
     company: "Cougar Helicopters",
     icon: "flight",
     location: "St. John's, NL",
@@ -57,7 +57,19 @@ const experience = [
     dates: "Jan 2021 – May 2021",
     points: [
       "Led youth workshops and helped design content introducing computer science through coding, animation and hands-on activities.",
-      "Designed and developed a website for the launch of a new high school space program.",
+      "Designed and initiated the development of a website for the launch of a new high school space program.",
+    ],
+    tech: [],
+  },
+  {
+    role: "Conference Website Manager & Research Assistant",
+    company: "Wild Blueberry Research, Dalhousie co-op",
+    icon: "leaf",
+    location: "Truro, NS",
+    dates: "June 2020 – Sept 2020",
+    points: [
+      "Built and maintained two websites for the research program, keeping their platform up to date with conference information.",
+      "Supported day-to-day research operations: analyzing plant samples and keeping data records accurate.",
     ],
     tech: [],
   },
@@ -86,8 +98,8 @@ const work = [
     context: "ImmediaC client project",
     year: "2026",
     description:
-      "Led the full replacement of the Nova Scotia Teachers Union's legacy membership registry, managing 40,000+ member records. Admin and member portals with finely scoped role permissions, single sign-on with nstu.ca, a communication centre for bulk email and SMS, and mail-merge document generation to PDF.",
-    tech: [".NET", "C#", "SQL", "Hangfire", "Tailwind"],
+      "Led the full replacement of the Nova Scotia Teachers Union's registry. Migrated 40,000+ member records and kept the old system's API compatible, so the conference platform kept working through the switch. Built admin and member portals with granular, role-based access scoped by local, site or regional council. The platform also includes single sign-on with nstu.ca, a communication centre for bulk email and SMS, and mail-merge document generation to PDF.",
+    tech: [".NET", "C#", "SQL", "Tailwind"],
     visual: { screenshot: "/images/work/nstu-registry.webp" },
     caseStudy: "https://immediac.com/our-work/nstu",
   },
@@ -96,8 +108,8 @@ const work = [
     context: "ImmediaC client project",
     year: "2026",
     description:
-      "A conference registration and management platform for the Nova Scotia Teachers Union. Staff build each conference with fees, workshop sessions, custom registration questions and seat limits, or have AI generate the full setup from a filled-in template. Members register, rank their workshop choices and pay through Stripe, while the platform handles workshop moves, refunds and publishing to nstu.ca.",
-    tech: [".NET", "C#", "Stripe", "Hangfire", "AI"],
+      "Led the redesign of the Nova Scotia Teachers Union's conference registration and management platform. Staff build each conference with fees, workshop sessions, custom registration questions and seat limits, or have AI generate the full setup from a filled-in template. Members register, rank their workshop choices and pay through Stripe, while the platform handles workshop moves, refunds and publishing to nstu.ca. Before launch, spotted a seat-overselling risk carried over from the legacy system, fixed it before any member was affected, and laid out the trade-offs so the team could make an informed call.",
+    tech: [".NET", "C#", "Stripe", "AI"],
     visual: { screenshot: "/images/work/nstu-conference.webp" },
     caseStudy: "https://immediac.com/our-work/nstu",
   },
@@ -106,7 +118,7 @@ const work = [
     context: "ImmediaC client project",
     year: "2026",
     description:
-      "A data management and visualization platform that replaced an energy arbitrage client's legacy Access database and imported all of their existing data. A built-in MCP server lets AI clients such as ChatGPT retrieve transactions and run daily data imports.",
+      "Led development of a data management and visualization platform that replaced an energy arbitrage client's legacy Access database, and migrated all of their existing data. Built an MCP server so staff can pull up and upload daily pricing and transaction data from within the AI tools they use frequently. AI submissions land in an awaiting-approval state, as requested by the client, to ensure correctness.",
     tech: [".NET", "C#", "MCP Servers", "AI"],
     visual: { energyDashboard: true },
     caseStudy: "https://immediac.com/our-work/energy-atlantica",
@@ -116,7 +128,7 @@ const work = [
     context: "Cougar Helicopters",
     year: "2025",
     description:
-      "A .NET Web API connecting Cougar Helicopters' VMO flight management system to their internal systems, synchronizing flight data in real time with legacy display and monitoring screens.",
+      "Built a .NET Web API connecting Cougar Helicopters' VMO flight management system (scheduling and dispatch software) to their internal systems. It synchronizes flight data in real time with legacy display and monitoring screens. Worked with internal teams to keep flight information secure and accurate across every system it touched.",
     tech: [".NET", "C#", "SQL", "REST APIs"],
     visual: { flightMap: true },
   },
@@ -125,7 +137,7 @@ const work = [
     context: "Cougar Helicopters",
     year: "2024 – 2025",
     description:
-      "A custom training platform that replaced legacy systems for tracking pilot and engineer certifications, later expanded to all company training and related data, with role-based authentication.",
+      "Built a custom training platform with role-based authentication that replaced legacy systems for tracking pilot and engineer certifications. Its success led the client to expand its scope from pilot training to all company training and related data.",
     tech: [".NET", "C#", "Next.js", "React", "SQL", "OpenIddict"],
     visual: { trainingDashboard: true },
   },
@@ -134,17 +146,17 @@ const work = [
     context: "ImmediaC client project",
     year: "2026",
     description:
-      "A marketplace-style app for iOS, Android and the web, built as one of two developers, where customers describe a job to an AI assistant that turns the conversation into a structured service request. Local providers browse matching requests nearby, AI moderation screens every post, and customers choose which contact details to share.",
+      "Built a marketplace-style app for iOS, Android and the web as one of two developers. Customers describe a job to an AI assistant, which turns the conversation into a structured service request. Local providers browse matching requests nearby. AI moderation screens every post and fails safe: if it can't run, the post is held for admin review instead of going live. Customers choose exactly which contact details each provider sees, keeping them in control of their privacy.",
     tech: ["React Native", "Expo", ".NET", "C#", "Azure OpenAI"],
     visual: { bidrPhones: true },
   },
 ];
 
 const skills = [
+  { group: "Technical", items: [".NET", "React", "Next.js", "Vue.js", "APIs", "Git", "AI & MCP integrations"] },
   { group: "Languages", items: ["C#", "JavaScript", "SQL", "Python", "Java"] },
-  { group: "Frontend", items: ["React", "Next.js", "Vue.js"] },
-  { group: "Backend & tools", items: [".NET", "REST APIs", "Git"] },
-  { group: "AI & integrations", items: ["MCP servers", "AI integrations", "Stripe", "Third-party APIs"] },
+  { group: "People & delivery", items: ["Client communication", "Coaching & teaching", "Requirements gathering", "Scoping & estimation", "Planning & tracking", "Risk management"] },
+  { group: "Documentation", items: ["Project plans", "Decision records", "Test plans", "Launch readiness"] },
 ];
 
 function SectionHeading({ title }) {
@@ -154,24 +166,6 @@ function SectionHeading({ title }) {
         {title}
       </Typography>
     </Box>
-  );
-}
-
-function TechList({ items }) {
-  if (!items.length) return null;
-
-  return (
-    <Stack direction="row" flexWrap="wrap" useFlexGap spacing={1} sx={{ mt: 2 }}>
-      {items.map((item) => (
-        <Chip
-          key={item}
-          label={item}
-          size="small"
-          variant="outlined"
-          sx={{ bgcolor: "secondary.light", border: 0, color: "primary.main" }}
-        />
-      ))}
-    </Stack>
   );
 }
 
@@ -381,139 +375,13 @@ function EducationAndVolunteering() {
 
 const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 
+function isCurrent(job) {
+  return job.dates.includes("Present");
+}
+
 function startValue(dates) {
   const [, month, year] = dates.match(/([A-Za-z]+)\s+(\d{4})/);
   return Number(year) * 12 + months.indexOf(month.slice(0, 3).toLowerCase());
-}
-
-const timelineIcons = {
-  code: CodeRoundedIcon,
-  flight: FlightTakeoffRoundedIcon,
-  school: SchoolRoundedIcon,
-  rocket: RocketLaunchRoundedIcon,
-};
-
-function ExperienceTimeline({ jobs }) {
-  return (
-    <Box
-      component="ol"
-      sx={{
-        listStyle: "none",
-        p: 0,
-        m: 0,
-        position: "relative",
-        display: "grid",
-        gridTemplateColumns: { xs: "1fr", md: `repeat(${jobs.length}, 1fr)` },
-        columnGap: 4,
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          bgcolor: "divider",
-          backgroundImage: { md: "linear-gradient(90deg, #f3e2e2 0%, #a35d66 100%)" },
-          top: { xs: 28, md: 27 },
-          bottom: { xs: 28, md: "auto" },
-          left: { xs: 27, md: 28 },
-          right: { md: 28 },
-          width: { xs: 2, md: "auto" },
-          height: { md: 2 },
-        },
-      }}
-    >
-      {jobs.map((job) => {
-        const Icon = timelineIcons[job.icon];
-        const isCurrent = job.dates.includes("Present");
-
-        return (
-          <Box
-            component="li"
-            key={`${job.company}-${job.role}`}
-            sx={{ position: "relative", pl: { xs: 9, md: 0 }, pb: { xs: 5, md: 0 }, "&:last-of-type": { pb: 0 }, "&:hover .timeline-node": { transform: "scale(1.08) rotate(-6deg)" } }}
-          >
-            <Box
-              className="timeline-node"
-              aria-hidden="true"
-              sx={{
-                position: { xs: "absolute", md: "relative" },
-                left: { xs: 0 },
-                top: { xs: 0 },
-                zIndex: 1,
-                width: 56,
-                height: 56,
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                bgcolor: isCurrent ? "secondary.main" : "background.paper",
-                color: isCurrent ? "secondary.contrastText" : "secondary.main",
-                border: 2,
-                borderColor: "secondary.main",
-                boxShadow: "0 0 0 6px #ffffff",
-                mb: { md: 3 },
-                transition: "transform 250ms ease",
-                "@media (prefers-reduced-motion: reduce)": { transition: "none" },
-              }}
-            >
-              <Icon />
-            </Box>
-
-            <Stack direction="row" alignItems="baseline" spacing={1.5}>
-              <Typography sx={{ fontFamily: "var(--font-display), Georgia, serif", fontWeight: 700, fontSize: "2rem", lineHeight: 1, letterSpacing: "-0.03em" }}>
-                {job.dates.match(/\d{4}/)[0]}
-              </Typography>
-              {isCurrent && (
-                <Typography variant="body2" sx={{ fontWeight: 700, color: "secondary.main" }}>
-                  Now
-                </Typography>
-              )}
-            </Stack>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-              {job.dates}
-            </Typography>
-            <Typography variant="subtitle1" component="h3" sx={{ fontWeight: 600, lineHeight: 1.3, mt: 1.5 }}>
-              {job.role}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {job.company}, {job.location}
-            </Typography>
-
-            <Box
-              component="details"
-              sx={{
-                mt: 1.5,
-                "& > summary": {
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 0.5,
-                  cursor: "pointer",
-                  listStyle: "none",
-                  color: "secondary.main",
-                  fontWeight: 600,
-                  fontSize: "0.9rem",
-                  "&::-webkit-details-marker": { display: "none" },
-                  "&:hover": { color: "primary.main" },
-                },
-                "& .chevron": { transition: "transform 200ms ease" },
-                "&[open] .chevron": { transform: "rotate(180deg)" },
-              }}
-            >
-              <summary>
-                Highlights
-                <ExpandMoreRoundedIcon className="chevron" fontSize="small" />
-              </summary>
-              <Box component="ul" sx={{ pl: 2.5, m: 0, mt: 1.5, color: "text.secondary" }}>
-                {job.points.map((point) => (
-                  <Typography component="li" key={point} variant="body2" sx={{ lineHeight: 1.7, mb: 0.75 }}>
-                    {point}
-                  </Typography>
-                ))}
-              </Box>
-              <TechList items={job.tech} />
-            </Box>
-          </Box>
-        );
-      })}
-    </Box>
-  );
 }
 
 function ProjectVisual({ project }) {
@@ -594,9 +462,10 @@ function HeroRole({ size }) {
   return (
     <>
       <Typography sx={{ fontWeight: 600, fontSize: s.role, lineHeight: 1.3 }}>Full-stack software developer</Typography>
-      <Stack direction="row" alignItems="center" sx={{ color: "text.secondary", gap: "0.3em", fontSize: s.place }}>
+      <Typography sx={{ fontWeight: 600, fontSize: s.role, lineHeight: 1.3, color: "secondary.main" }}>Project manager</Typography>
+      <Stack direction="row" alignItems="center" sx={{ color: "text.secondary", gap: "0.3em", fontSize: s.place, mt: "0.35em" }}>
         <LocationOnOutlinedIcon sx={{ fontSize: "1.1em" }} />
-        <Typography sx={{ fontSize: "inherit" }}>Halifax & Truro, NS</Typography>
+        <Typography sx={{ fontSize: "inherit" }}>Halifax, NS · Truro, NS · St. John&apos;s, NL</Typography>
       </Stack>
     </>
   );
@@ -645,9 +514,6 @@ function HeroIntro({ size }) {
         <Button component={Link} href="/contact" variant="contained" sx={{ fontSize: s.button, p: s.buttonPad, minWidth: 0 }}>
           Get in touch
         </Button>
-        <Button component={Link} href="/resume" variant="outlined" sx={{ fontSize: s.button, p: s.buttonPad, minWidth: 0 }}>
-          View resume
-        </Button>
         {socialLinks.map(({ href, label, Icon }) => (
           <IconButton
             key={label}
@@ -661,10 +527,8 @@ function HeroIntro({ size }) {
               height: s.icon,
               p: 0,
               fontSize: s.iconGlyph,
-              border: 1,
-              borderColor: "rgba(42,29,27,0.5)",
               color: "primary.main",
-              "&:hover": { bgcolor: "secondary.light", borderColor: "secondary.main" },
+              "&:hover": { bgcolor: "transparent", color: "secondary.main" },
             }}
           >
             <Icon sx={{ fontSize: "inherit" }} />
@@ -731,7 +595,7 @@ export default function Home() {
         <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
           <SectionHeading title="Where I've worked" />
 
-          <ExperienceTimeline jobs={[...experience].sort((a, b) => startValue(a.dates) - startValue(b.dates))} />
+          <ExperienceTimeline jobs={[...experience].sort((a, b) => isCurrent(a) - isCurrent(b) || startValue(a.dates) - startValue(b.dates))} />
         </Container>
       </Box>
 
@@ -784,7 +648,7 @@ export default function Home() {
             ))}
           </Grid>
           <Typography variant="body2" color="text.secondary" sx={{ mt: { xs: 6, md: 8 }, maxWidth: 640 }}>
-            NSTU screens are from ImmediaC&apos;s published case study. All other project images are illustrative mockups, not actual
+            NSTU screens are from ImmediaC&apos;s published case study with test data. All other project images are illustrative mockups, not actual
             product screens or client data.
           </Typography>
         </Container>
@@ -794,7 +658,7 @@ export default function Home() {
 
       <Box component="section" id="skills" sx={{ borderTop: 1, borderColor: "divider" }}>
         <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-          <SectionHeading title="What I work with" />
+          <SectionHeading title="How I work" />
           <SkillKeyboard />
         </Container>
       </Box>

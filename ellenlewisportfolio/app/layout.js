@@ -14,9 +14,9 @@ const display = Bricolage_Grotesque({
 });
 
 export const metadata = {
-  title: "Ellen Lewis | Software Developer",
+  title: "Ellen Lewis | Software Developer & Project Manager",
   description:
-    "Ellen Lewis is a full-stack software developer in Halifax, Nova Scotia, building web applications with .NET, C#, React and Next.js.",
+    "Ellen Lewis is a full-stack software developer and project manager in Halifax, Nova Scotia, delivering web applications with .NET, C#, React and Next.js from requirements to launch.",
 };
 
 export default function RootLayout({ children }) {
