@@ -462,7 +462,6 @@ function HeroRole({ size }) {
   return (
     <>
       <Typography sx={{ fontWeight: 600, fontSize: s.role, lineHeight: 1.3 }}>Full-stack software developer</Typography>
-      <Typography sx={{ fontWeight: 600, fontSize: s.role, lineHeight: 1.3, color: "secondary.main" }}>Project manager</Typography>
       <Stack direction="row" alignItems="center" sx={{ color: "text.secondary", gap: "0.3em", fontSize: s.place, mt: "0.35em" }}>
         <LocationOnOutlinedIcon sx={{ fontSize: "1.1em" }} />
         <Typography sx={{ fontSize: "inherit" }}>Halifax, NS · Truro, NS · St. John&apos;s, NL</Typography>
