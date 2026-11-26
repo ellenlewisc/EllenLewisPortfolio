@@ -551,14 +551,24 @@ export default function Home() {
             sx={{ pt: { xs: "9%", md: "5.5%" }, pb: { xs: "5%", md: "3.5%" } }}
           >
             <Monitor width={{ xs: "92%", md: "80%" }}>
-              <Box sx={{ position: "absolute", inset: 0, display: "grid", gridTemplateColumns: "57% 43%" }}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  display: "grid",
+                  gridTemplateColumns: "1fr auto",
+                  alignItems: "center",
+                  columnGap: "4cqw",
+                  p: "5.5cqw 6.5cqw 5cqw 5.5cqw",
+                  background: "radial-gradient(50% 80% at 85% 55%, rgba(243,226,226,0.95), transparent 70%), linear-gradient(180deg, #ffffff 0%, #faf5f3 100%)",
+                }}
+              >
                 <Box
                   sx={{
-                    p: "5.5cqw 4cqw 5cqw 5.5cqw",
+                    height: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: { xs: "center", md: "space-between" },
-                    background: "linear-gradient(180deg, #ffffff 0%, #faf5f3 100%)",
                   }}
                 >
                   <Box sx={{ display: { xs: "none", md: "block" } }}>
@@ -569,12 +579,21 @@ export default function Home() {
                     <HeroIntro size="screen" />
                   </Box>
                 </Box>
-                <Box sx={{ overflow: "hidden" }}>
+                <Box
+                  sx={{
+                    width: "29cqw",
+                    aspectRatio: "4 / 5",
+                    borderRadius: "1.4cqw",
+                    overflow: "hidden",
+                    border: "0.55cqw solid #ffffff",
+                    boxShadow: "0 0 0 1px #ece3e0, 0 2cqw 4cqw rgba(42,29,27,0.18)",
+                  }}
+                >
                   <Box
                     component="img"
                     src="/images/ellen-lewis.jpg"
                     alt="Ellen Lewis"
-                    sx={{ display: "block", width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", transform: "scale(1.15)", transformOrigin: "50% 22%" }}
+                    sx={{ display: "block", width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", transform: "scale(1.1)", transformOrigin: "50% 25%" }}
                   />
                 </Box>
               </Box>
