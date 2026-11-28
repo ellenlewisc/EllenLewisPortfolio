@@ -3,7 +3,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
-const displayFont = "var(--font-display), Georgia, serif";
+const sansFont = "var(--font-sans), system-ui, -apple-system, 'Segoe UI', sans-serif";
 
 const theme = createTheme({
   palette: {
@@ -17,12 +17,12 @@ const theme = createTheme({
   },
   shape: { borderRadius: 10 },
   typography: {
-    fontFamily: "var(--font-sans), system-ui, -apple-system, 'Segoe UI', sans-serif",
-    h1: { fontFamily: displayFont, fontWeight: 700, letterSpacing: "-0.035em", lineHeight: 1.05 },
-    h2: { fontFamily: displayFont, fontWeight: 700, letterSpacing: "-0.025em", lineHeight: 1.15 },
-    h3: { fontFamily: displayFont, fontWeight: 650, letterSpacing: "-0.015em" },
-    h5: { fontFamily: displayFont, fontWeight: 650, letterSpacing: "-0.015em" },
-    h6: { fontFamily: displayFont, fontWeight: 650, letterSpacing: "-0.01em" },
+    fontFamily: sansFont,
+    h1: { fontWeight: 700, letterSpacing: "-0.035em", lineHeight: 1.05 },
+    h2: { fontWeight: 700, letterSpacing: "-0.025em", lineHeight: 1.15 },
+    h3: { fontWeight: 650, letterSpacing: "-0.015em" },
+    h5: { fontWeight: 650, letterSpacing: "-0.015em" },
+    h6: { fontWeight: 650, letterSpacing: "-0.01em" },
     overline: { fontWeight: 600, fontSize: "0.95rem", letterSpacing: 0, lineHeight: 1.6, textTransform: "none" },
     button: { textTransform: "none", fontWeight: 600 },
   },

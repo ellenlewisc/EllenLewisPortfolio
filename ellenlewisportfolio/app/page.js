@@ -18,13 +18,12 @@ const experience = [
     location: "Halifax, NS",
     dates: "Sept 2021 – Present",
     points: [
-      "Design, build and maintain client websites and custom web applications, from initial requirements through deployment.",
-      "Work both independently and as part of the team, owning projects end to end or collaborating on larger systems.",
-      "Work directly with clients across sectors (a teachers' union, energy trading, senior living, retail) to define scope and timelines, and turn their needs into clear, buildable requirements.",
-      "Deliver third-party API integrations such as Stripe payments, Yardi CRM and AI tools.",
-      "Write project plans before building and testing documentation before launch, so the team and client share one understanding of the approach and can give feedback early.",
+      "Design, build and maintain websites and custom web applications for clients using .NET, SQL Server, Azure and a range of front-end frameworks.",
+      "Meet with clients to define scope, set timelines, demo new features and gather feedback.",
+      "Integrate third-party services, including payment processors, CRMs and AI tools.",
+      "Write project plans before development and test documentation before launch, so the team and client can give feedback early.",
     ],
-    tech: [".NET", "C#", "SQL", "JavaScript"],
+    tech: [".NET", "C#", "SQL", "Azure", "JavaScript"],
   },
   {
     role: "Software Developer (Contract through ImmediaC)",
@@ -73,6 +72,15 @@ const experience = [
     ],
     tech: [],
   },
+  {
+    role: "Bachelor of Computer Science",
+    company: "Dalhousie University",
+    icon: "degree",
+    location: "Halifax, NS",
+    dates: "2018 – 2023",
+    points: [],
+    tech: [],
+  },
 ];
 
 const volunteering = [
@@ -81,14 +89,14 @@ const volunteering = [
     company: "Nova Knights U16 girls",
     dates: "2026 – Present",
     description:
-      "Plan and run practices and set goals for the season, coordinating schedules, games and logistics with players, parents and the club.",
+      "Plan and run practices, set goals for the season, and organize games with players, parents and the club.",
   },
   {
     role: "Wish Volunteer",
     company: "Make-A-Wish",
     dates: "2025 – Present",
     description:
-      "Plan and coordinate wish reveals for children and their families, working with families and Make-A-Wish staff on timing, logistics and details.",
+      "Help plan and deliver wish reveals, working with families and Make-A-Wish staff to make each one special.",
   },
 ];
 
@@ -98,8 +106,8 @@ const work = [
     context: "ImmediaC client project",
     year: "2026",
     description:
-      "Led the full replacement of the Nova Scotia Teachers Union's registry. Migrated 40,000+ member records and kept the old system's API compatible, so the conference platform kept working through the switch. Built admin and member portals with granular, role-based access scoped by local, site or regional council. The platform also includes single sign-on with nstu.ca, a communication centre for bulk email and SMS, and mail-merge document generation to PDF.",
-    tech: [".NET", "C#", "SQL", "Tailwind"],
+      "The Nova Scotia Teachers Union's member registry, holding 40,000+ member records. It includes staff and member portals with permissions limited to each user's local, site or regional council, case management, bulk email and SMS, and PDF document generation. Members use one login across three platforms through the union's website accounts, with required 2FA. I led the rebuild in .NET 9 and Azure, migrating the records from the old system and keeping the API the conference and website apps rely on working through the switch.",
+    tech: [".NET", "C#", "SQL", "Azure", "Tailwind"],
     visual: { screenshot: "/images/work/nstu-registry.webp" },
     caseStudy: "https://immediac.com/our-work/nstu",
   },
@@ -108,7 +116,7 @@ const work = [
     context: "ImmediaC client project",
     year: "2026",
     description:
-      "Led the redesign of the Nova Scotia Teachers Union's conference registration and management platform. Staff build each conference with fees, workshop sessions, custom registration questions and seat limits, or have AI generate the full setup from a filled-in template. Members register, rank their workshop choices and pay through Stripe, while the platform handles workshop moves, refunds and publishing to nstu.ca. Before launch, spotted a seat-overselling risk carried over from the legacy system, fixed it before any member was affected, and laid out the trade-offs so the team could make an informed call.",
+      "The Nova Scotia Teachers Union's conference registration and management platform. In the member portal, teachers register for a conference, rank their workshop choices and pay through Stripe. If they change their registration after paying, the platform works out the price difference and charges or refunds it automatically. In the admin portal, staff set up each conference with fees, workshops, custom questions and capacity limits, or use an AI feature to build it from a template submitted by volunteers. Each conference syncs to the NSTU public website. I led the rebuild of their legacy system into the platform they use today.",
     tech: [".NET", "C#", "Stripe", "AI"],
     visual: { screenshot: "/images/work/nstu-conference.webp" },
     caseStudy: "https://immediac.com/our-work/nstu",
@@ -118,7 +126,7 @@ const work = [
     context: "ImmediaC client project",
     year: "2026",
     description:
-      "Led development of a data management and visualization platform that replaced an energy arbitrage client's legacy Access database, and migrated all of their existing data. Built an MCP server so staff can pull up and upload daily pricing and transaction data from within the AI tools they use frequently. AI submissions land in an awaiting-approval state, as requested by the client, to ensure correctness.",
+      "A data management and visualization platform for an energy arbitrage client, replacing their legacy Access database. Staff track daily pricing and transaction data in one place, and an MCP server lets them pull up and upload that data from within the AI tools they already use. At the client's request, data uploaded through AI is held for review before it's saved. I led development and migrated all of their existing data from the old database.",
     tech: [".NET", "C#", "MCP Servers", "AI"],
     visual: { energyDashboard: true },
     caseStudy: "https://immediac.com/our-work/energy-atlantica",
@@ -128,7 +136,7 @@ const work = [
     context: "Cougar Helicopters",
     year: "2025",
     description:
-      "Built a .NET Web API connecting Cougar Helicopters' VMO flight management system (scheduling and dispatch software) to their internal systems. It synchronizes flight data in real time with legacy display and monitoring screens. Worked with internal teams to keep flight information secure and accurate across every system it touched.",
+      "A .NET Web API that connects Cougar Helicopters' VMO flight management system (their scheduling and dispatch software) to their internal systems. It syncs flight data in real time to the legacy display and monitoring screens used around the base, so everyone sees the same flight information.",
     tech: [".NET", "C#", "SQL", "REST APIs"],
     visual: { flightMap: true },
   },
@@ -137,7 +145,7 @@ const work = [
     context: "Cougar Helicopters",
     year: "2024 – 2025",
     description:
-      "Built a custom training platform with role-based authentication that replaced legacy systems for tracking pilot and engineer certifications. Its success led the client to expand its scope from pilot training to all company training and related data.",
+      "Built a custom training platform to replace the client's old systems for tracking pilot and engineer certifications, with access based on each user's role. The client later expanded it to cover all company training and related records.",
     tech: [".NET", "C#", "Next.js", "React", "SQL", "OpenIddict"],
     visual: { trainingDashboard: true },
   },
@@ -146,17 +154,17 @@ const work = [
     context: "ImmediaC client project",
     year: "2026",
     description:
-      "Built a marketplace-style app for iOS, Android and the web as one of two developers. Customers describe a job to an AI assistant, which turns the conversation into a structured service request. Local providers browse matching requests nearby. AI moderation screens every post and fails safe: if it can't run, the post is held for admin review instead of going live. Customers choose exactly which contact details each provider sees, keeping them in control of their privacy.",
+      "A marketplace app for iOS, Android and the web that connects customers with local service providers. Customers describe a job to an AI assistant, which turns the conversation into a structured service request, and providers browse matching requests nearby. Every post goes through AI moderation before it goes live, and customers choose which contact details each provider can see. Built with React Native and Expo on a .NET backend, using Azure OpenAI for the AI features. I was one of three developers on the project.",
     tech: ["React Native", "Expo", ".NET", "C#", "Azure OpenAI"],
     visual: { bidrPhones: true },
   },
 ];
 
 const skills = [
-  { group: "Technical", items: [".NET", "React", "Next.js", "Vue.js", "APIs", "Git", "AI & MCP integrations"] },
+  { group: "Technical", items: [".NET", "Azure", "React", "Next.js", "Vue.js", "APIs", "Git", "AI & MCP integrations"] },
   { group: "Languages", items: ["C#", "JavaScript", "SQL", "Python", "Java"] },
-  { group: "People & delivery", items: ["Client communication", "Coaching & teaching", "Requirements gathering", "Scoping & estimation", "Planning & tracking", "Risk management"] },
-  { group: "Documentation", items: ["Project plans", "Decision records", "Test plans", "Launch readiness"] },
+  { group: "People & delivery", items: ["Client communication & demos", "Coaching & teaching", "Requirements gathering", "Scoping & estimation", "Planning & tracking", "Risk management"] },
+  { group: "Documentation", items: ["Project plans", "Decision records", "Test plans"] },
 ];
 
 function SectionHeading({ title }) {
@@ -169,82 +177,24 @@ function SectionHeading({ title }) {
   );
 }
 
-const keycapColours = [
-  { face: "#3a2824", edge: "#1c1311", text: "#f6ecea" },
-  { face: "#b36a73", edge: "#7f434b", text: "#ffffff" },
-  { face: "#f3e2e2", edge: "#d6b9b8", text: "#2a1d1b" },
-  { face: "#fbf8f6", edge: "#ddd2cd", text: "#2a1d1b" },
-];
-
-function SkillKeyboard() {
+function SkillGroups() {
   return (
-    <Box
-      sx={{
-        borderRadius: { xs: "20px", md: "28px" },
-        p: { xs: 2.5, md: 4 },
-        bgcolor: "bloom.main",
-        border: 1,
-        borderColor: "divider",
-        boxShadow: "inset 0 2px 0 rgba(255,255,255,0.7), 0 30px 50px -40px rgba(42,29,27,0.5)",
-      }}
-    >
-      {skills.map((skill, row) => {
-        const colour = keycapColours[row % keycapColours.length];
-
-        return (
-          <Box
-            key={skill.group}
-            sx={{
-              display: "grid",
-              gridTemplateColumns: { xs: "1fr", md: "220px 1fr" },
-              alignItems: "center",
-              gap: { xs: 1.5, md: 3 },
-              py: { xs: 2, md: 2.25 },
-              borderTop: row === 0 ? 0 : "1px dashed",
-              borderColor: "divider",
-            }}
-          >
-            <Typography
-              component="h3"
-              sx={{ fontFamily: "var(--font-display), Georgia, serif", fontWeight: 700, fontSize: { xs: "1.2rem", md: "1.35rem" }, letterSpacing: "-0.02em" }}
-            >
-              {skill.group}
-            </Typography>
-            <Box component="ul" sx={{ listStyle: "none", m: 0, p: 0, display: "flex", flexWrap: "wrap", gap: { xs: 1.25, md: 1.5 } }}>
-              {skill.items.map((item) => (
-                <Box
-                  component="li"
-                  key={item}
-                  sx={{
-                    px: { xs: 1.75, md: 2.25 },
-                    py: { xs: 1, md: 1.25 },
-                    minWidth: 56,
-                    textAlign: "center",
-                    borderRadius: "10px",
-                    bgcolor: colour.face,
-                    color: colour.text,
-                    fontWeight: 600,
-                    fontSize: { xs: "0.9rem", md: "0.95rem" },
-                    boxShadow: `inset 0 1px 0 rgba(255,255,255,0.25), 0 5px 0 ${colour.edge}, 0 9px 12px -6px rgba(42,29,27,0.35)`,
-                    transform: "translateY(0)",
-                    transition: "transform 120ms ease, box-shadow 120ms ease",
-                    cursor: "default",
-                    userSelect: "none",
-                    "&:hover": {
-                      transform: "translateY(4px)",
-                      boxShadow: `inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 0 ${colour.edge}, 0 3px 6px -4px rgba(42,29,27,0.35)`,
-                    },
-                    "@media (prefers-reduced-motion: reduce)": { transition: "none" },
-                  }}
-                >
-                  {item}
-                </Box>
-              ))}
-            </Box>
+    <Grid container spacing={{ xs: 4, md: 6 }}>
+      {skills.map((skill) => (
+        <Grid key={skill.group} size={{ xs: 12, sm: 6, md: 3 }}>
+          <Typography component="h3" sx={{ fontWeight: 700, fontSize: "1.15rem", pb: 1.5, mb: 1.5, borderBottom: 2, borderColor: "secondary.main" }}>
+            {skill.group}
+          </Typography>
+          <Box component="ul" sx={{ listStyle: "none", m: 0, p: 0 }}>
+            {skill.items.map((item) => (
+              <Typography component="li" key={item} color="text.secondary" sx={{ py: 0.5 }}>
+                {item}
+              </Typography>
+            ))}
           </Box>
-        );
-      })}
-    </Box>
+        </Grid>
+      ))}
+    </Grid>
   );
 }
 
@@ -278,96 +228,60 @@ const volunteerDoodles = {
   "Wish Volunteer": WishStarDoodle,
 };
 
-function EducationAndVolunteering() {
+function Volunteering() {
   return (
-    <Box component="section" id="education" sx={{ bgcolor: "bloom.main", borderTop: 1, borderColor: "divider" }}>
+    <Box component="section" id="volunteering" sx={{ bgcolor: "bloom.main", borderTop: 1, borderColor: "divider" }}>
       <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-        <SectionHeading title="Education & volunteering" />
+        <SectionHeading title="Volunteering" />
 
-        <Grid container columnSpacing={{ md: 8 }} rowSpacing={{ xs: 6, md: 0 }} alignItems="stretch">
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: { xs: 3, md: 4 }, pt: { md: 1 } }}>
-              <Box>
-                <Typography
-                  component="h3"
-                  sx={{
-                    fontFamily: "var(--font-display), Georgia, serif",
-                    fontWeight: 700,
-                    fontSize: { xs: "2.4rem", md: "3.1rem" },
-                    lineHeight: 1.02,
-                    letterSpacing: "-0.035em",
-                  }}
-                >
-                  Bachelor of Computer Science
-                </Typography>
-                <Typography color="text.secondary" sx={{ mt: 2.5, fontSize: "1.1rem" }}>
-                  Dalhousie University, Halifax, NS
-                </Typography>
-              </Box>
-              <Typography
+        <Box
+          sx={{
+            position: "relative",
+            overflow: "hidden",
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+            columnGap: 8,
+            borderRadius: { xs: "20px", md: "28px" },
+            px: { xs: 3, md: 6 },
+            py: { xs: 1, md: 2 },
+            color: "#f6ecea",
+            background: "radial-gradient(80% 70% at 100% 0%, rgba(181,114,122,0.28), transparent 65%), linear-gradient(160deg, #4a332d 0%, #2a1d1b 100%)",
+          }}
+        >
+          {volunteering.map((item, index) => {
+            const Doodle = volunteerDoodles[item.role];
+
+            return (
+              <Box
+                key={item.role}
                 sx={{
-                  fontFamily: "var(--font-display), Georgia, serif",
-                  fontWeight: 700,
-                  fontSize: { xs: "3rem", md: "4.5rem" },
-                  lineHeight: 1,
-                  letterSpacing: "-0.04em",
-                  color: "transparent",
-                  WebkitTextStroke: "1.5px #a35d66",
+                  display: "grid",
+                  gridTemplateColumns: { xs: "52px 1fr", md: "68px 1fr" },
+                  columnGap: { xs: 2.5, md: 3.5 },
+                  py: { xs: 3.5, md: 4.5 },
+                  borderTop: { xs: index === 0 ? 0 : "1px solid rgba(246,236,234,0.14)", md: 0 },
                 }}
               >
-                2018 – 2023
-              </Typography>
-            </Box>
-          </Grid>
-
-          <Grid size={{ xs: 12, md: 7 }}>
-            <Box
-              sx={{
-                position: "relative",
-                overflow: "hidden",
-                borderRadius: { xs: "20px", md: "28px" },
-                px: { xs: 3, md: 5 },
-                py: { xs: 1, md: 2 },
-                color: "#f6ecea",
-                background: "radial-gradient(80% 70% at 100% 0%, rgba(181,114,122,0.28), transparent 65%), linear-gradient(160deg, #4a332d 0%, #2a1d1b 100%)",
-              }}
-            >
-              {volunteering.map((item, index) => {
-                const Doodle = volunteerDoodles[item.role];
-
-                return (
-                  <Box
-                    key={item.role}
-                    sx={{
-                      display: "grid",
-                      gridTemplateColumns: { xs: "52px 1fr", md: "68px 1fr" },
-                      columnGap: { xs: 2.5, md: 3.5 },
-                      py: { xs: 3.5, md: 4.5 },
-                      borderTop: index === 0 ? 0 : "1px solid rgba(246,236,234,0.14)",
-                    }}
+                <Box sx={{ color: "#dba1a9", width: { xs: 52, md: 68 }, height: { xs: 52, md: 68 }, transform: index % 2 ? "rotate(6deg)" : "rotate(-8deg)" }}>
+                  {Doodle && <Doodle />}
+                </Box>
+                <Box>
+                  <Typography variant="body2" sx={{ color: "#dba1a9", fontWeight: 600 }}>
+                    {item.dates}
+                  </Typography>
+                  <Typography
+                    component="h3"
+                    sx={{ mt: 0.5, fontWeight: 700, fontSize: { xs: "1.5rem", md: "1.75rem" }, lineHeight: 1.15, letterSpacing: "-0.02em" }}
                   >
-                    <Box sx={{ color: "#dba1a9", width: { xs: 52, md: 68 }, height: { xs: 52, md: 68 }, transform: index % 2 ? "rotate(6deg)" : "rotate(-8deg)" }}>
-                      {Doodle && <Doodle />}
-                    </Box>
-                    <Box>
-                      <Typography variant="body2" sx={{ color: "#dba1a9", fontWeight: 600 }}>
-                        {item.dates}
-                      </Typography>
-                      <Typography
-                        component="h3"
-                        sx={{ mt: 0.5, fontFamily: "var(--font-display), Georgia, serif", fontWeight: 700, fontSize: { xs: "1.5rem", md: "1.75rem" }, lineHeight: 1.15, letterSpacing: "-0.02em" }}
-                      >
-                        {item.role}
-                      </Typography>
-                      <Typography sx={{ color: "#cdb9b4" }}>{item.company}</Typography>
-                      <Typography sx={{ color: "#e6d8d4", lineHeight: 1.7, mt: 1.5 }}>{item.description}</Typography>
-                    </Box>
-                  </Box>
-                );
-              })}
-            </Box>
-          </Grid>
-        </Grid>
+                    {item.role}
+                  </Typography>
+                  <Typography sx={{ color: "#cdb9b4" }}>{item.company}</Typography>
+                  <Typography sx={{ color: "#e6d8d4", lineHeight: 1.7, mt: 1.5 }}>{item.description}</Typography>
+                </Box>
+              </Box>
+            );
+          })}
+        </Box>
       </Container>
     </Box>
   );
@@ -380,8 +294,8 @@ function isCurrent(job) {
 }
 
 function startValue(dates) {
-  const [, month, year] = dates.match(/([A-Za-z]+)\s+(\d{4})/);
-  return Number(year) * 12 + months.indexOf(month.slice(0, 3).toLowerCase());
+  const [, month, year] = dates.match(/(?:([A-Za-z]+)\s+)?(\d{4})/);
+  return Number(year) * 12 + (month ? months.indexOf(month.slice(0, 3).toLowerCase()) : 0);
 }
 
 function ProjectVisual({ project }) {
@@ -442,11 +356,6 @@ function ProjectVisual({ project }) {
       ) : (
         media
       )}
-      {!visual.screenshot && (
-        <Typography variant="caption" color="text.secondary" component="p" sx={{ mt: 0.75 }}>
-          Illustrative mockup, not the actual product
-        </Typography>
-      )}
     </Box>
   );
 }
@@ -476,9 +385,6 @@ function HeroName() {
       Ellen
       <br />
       Lewis
-      <Box component="span" aria-hidden="true" sx={{ color: "secondary.main" }}>
-        .
-      </Box>
     </Typography>
   );
 }
@@ -611,7 +517,7 @@ export default function Home() {
 
       <Box component="section" id="experience">
         <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
-          <SectionHeading title="Where I've worked" />
+          <SectionHeading title="Experience" />
 
           <ExperienceTimeline jobs={[...experience].sort((a, b) => isCurrent(a) - isCurrent(b) || startValue(a.dates) - startValue(b.dates))} />
         </Container>
@@ -666,18 +572,17 @@ export default function Home() {
             ))}
           </Grid>
           <Typography variant="body2" color="text.secondary" sx={{ mt: { xs: 6, md: 8 }, maxWidth: 640 }}>
-            NSTU screens are from ImmediaC&apos;s published case study with test data. All other project images are illustrative mockups, not actual
-            product screens or client data.
+            NSTU screenshots are from ImmediaC&apos;s published case study, using test data. Other project images are illustrative mockups.
           </Typography>
         </Container>
       </Box>
 
-      <EducationAndVolunteering />
+      <Volunteering />
 
       <Box component="section" id="skills" sx={{ borderTop: 1, borderColor: "divider" }}>
         <Container maxWidth="lg" sx={{ py: { xs: 8, md: 12 } }}>
           <SectionHeading title="How I work" />
-          <SkillKeyboard />
+          <SkillGroups />
         </Container>
       </Box>
 
@@ -698,7 +603,7 @@ export default function Home() {
               Let&apos;s connect
             </Typography>
             <Typography sx={{ color: "#e3cfcc", maxWidth: 520 }}>
-              Have a question or a project in mind? Send me a message and I&apos;ll get back to you.
+              Have a question about something here? Send me a message and I&apos;ll get back to you.
             </Typography>
           </Box>
           <Button
@@ -706,9 +611,9 @@ export default function Home() {
             href="/contact"
             variant="contained"
             size="large"
-            sx={{ bgcolor: "#ffffff", color: "primary.main", "&:hover": { bgcolor: "#e2e8f0" } }}
+            sx={{ bgcolor: "#ffffff", color: "primary.main", "&:hover": { bgcolor: "secondary.light" } }}
           >
-            Get in touch
+            Contact
           </Button>
         </Container>
       </Box>

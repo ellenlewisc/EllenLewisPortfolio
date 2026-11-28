@@ -6,6 +6,7 @@ import FlightTakeoffRoundedIcon from "@mui/icons-material/FlightTakeoffRounded";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
 import SpaRoundedIcon from "@mui/icons-material/SpaRounded";
+import WorkspacePremiumRoundedIcon from "@mui/icons-material/WorkspacePremiumRounded";
 import TechList from "./techList";
 
 const timelineIcons = {
@@ -14,6 +15,7 @@ const timelineIcons = {
   school: SchoolRoundedIcon,
   rocket: RocketLaunchRoundedIcon,
   leaf: SpaRoundedIcon,
+  degree: WorkspacePremiumRoundedIcon,
 };
 
 function jobKey(job) {
@@ -39,23 +41,25 @@ function HighlightsPanel({ job }) {
           {" "}· {job.company}
         </Box>
       </Typography>
-      <Box
-        component="ul"
-        sx={{
-          pl: 2.5,
-          m: 0,
-          mt: 1.5,
-          color: "text.secondary",
-          columnCount: { xs: 1, md: job.points.length > 2 ? 2 : 1 },
-          columnGap: 6,
-        }}
-      >
-        {job.points.map((point) => (
-          <Typography component="li" key={point} variant="body2" sx={{ lineHeight: 1.7, mb: 1, breakInside: "avoid" }}>
-            {point}
-          </Typography>
-        ))}
-      </Box>
+      {job.points.length > 0 && (
+        <Box
+          component="ul"
+          sx={{
+            pl: 2.5,
+            m: 0,
+            mt: 1.5,
+            color: "text.secondary",
+            columnCount: { xs: 1, md: job.points.length > 2 ? 2 : 1 },
+            columnGap: 6,
+          }}
+        >
+          {job.points.map((point) => (
+            <Typography component="li" key={point} variant="body2" sx={{ lineHeight: 1.7, mb: 1, breakInside: "avoid" }}>
+              {point}
+            </Typography>
+          ))}
+        </Box>
+      )}
       <TechList items={job.tech} />
     </Box>
   );

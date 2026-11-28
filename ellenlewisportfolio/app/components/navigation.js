@@ -57,7 +57,6 @@ export default function Navigation({ children }) {
               component={Link}
               href="/"
               sx={{
-                fontFamily: "var(--font-display), Georgia, serif",
                 color: "text.primary",
                 textDecoration: "none",
                 fontWeight: 600,

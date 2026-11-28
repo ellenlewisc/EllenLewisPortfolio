@@ -1,15 +1,10 @@
-import { Figtree, Bricolage_Grotesque } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "./components/providers";
 import Navigation from "./components/navigation";
 
-const sans = Figtree({
+const sans = Inter({
   variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const display = Bricolage_Grotesque({
-  variable: "--font-display",
   subsets: ["latin"],
 });
 
@@ -22,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${sans.variable} ${display.variable}`}>
+      <body className={sans.variable}>
         <Providers>
           <Navigation>{children}</Navigation>
         </Providers>
