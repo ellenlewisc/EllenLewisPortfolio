@@ -47,14 +47,11 @@ export default function Contact() {
     <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }} className="fadeUp">
       <Grid container spacing={{ xs: 5, md: 8 }}>
         <Grid size={{ xs: 12, md: 5 }}>
-          <Typography variant="overline" component="p" color="secondary">
-            Contact
-          </Typography>
           <Typography variant="h1" sx={{ fontSize: { xs: "2.5rem", md: "3.25rem" }, mb: 2 }}>
             Get in touch
           </Typography>
           <Typography color="text.secondary" sx={{ fontSize: "1.1rem", lineHeight: 1.75, mb: 4 }}>
-            Want to connect? Send me a message and I&apos;ll get back to you as soon as I can.
+            Have a question about something here? Send me a message and I&apos;ll get back to you.
           </Typography>
 
           <Stack spacing={1.5}>
