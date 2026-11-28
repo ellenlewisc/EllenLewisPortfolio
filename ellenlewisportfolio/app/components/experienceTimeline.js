@@ -158,8 +158,8 @@ export default function ExperienceTimeline({ jobs }) {
                 >
                   {job.role}
                 </Typography>
-                <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 0.5, mb: 0.25 }}>
-                  <Typography variant="body2" sx={{ fontWeight: 600, color: "secondary.main" }}>
+                <Stack direction="row" alignItems="center" flexWrap="wrap" useFlexGap sx={{ mt: 0.5, mb: 0.25, columnGap: 1, rowGap: 0.5 }}>
+                  <Typography variant="body2" sx={{ fontWeight: 600, color: "secondary.main", whiteSpace: "nowrap" }}>
                     {job.dates}
                   </Typography>
                   {job.dates.includes("Present") && (
@@ -172,7 +172,7 @@ export default function ExperienceTimeline({ jobs }) {
                   )}
                 </Stack>
                 <Typography variant="body2" color="text.secondary">
-                  {job.company}, {job.location}
+                  {job.company.replaceAll("-", "‑")}, {job.location}
                 </Typography>
               </Box>
 

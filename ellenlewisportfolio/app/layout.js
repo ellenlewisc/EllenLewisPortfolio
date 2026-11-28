@@ -9,9 +9,9 @@ const sans = Inter({
 });
 
 export const metadata = {
-  title: "Ellen Lewis | Software Developer & Project Manager",
+  title: "Ellen Lewis | Full-Stack Software Developer",
   description:
-    "Ellen Lewis is a full-stack software developer and project manager in Halifax, Nova Scotia, delivering web applications with .NET, C#, React and Next.js from requirements to launch.",
+    "Ellen Lewis is a full-stack software developer in Halifax, Nova Scotia, delivering web applications with .NET, C#, React and Next.js from requirements to launch.",
 };
 
 export default function RootLayout({ children }) {

@@ -16,7 +16,7 @@ const experience = [
     company: "ImmediaC",
     icon: "code",
     location: "Halifax, NS",
-    dates: "Sept 2021 – Present",
+    dates: "Sep 2021 – Present",
     points: [
       "Design, build and maintain websites and custom web applications for clients using .NET, SQL Server, Azure and a range of front-end frameworks.",
       "Meet with clients to define scope, set timelines, demo new features and gather feedback.",
@@ -42,7 +42,7 @@ const experience = [
     company: "Dalhousie University",
     icon: "school",
     location: "Halifax, NS",
-    dates: "May 2021 – Sept 2021",
+    dates: "May 2021 – Sep 2021",
     points: [
       "Led labs for CSCI 1105: Intro to Computer Science, and marked Java assignments and quizzes.",
     ],
@@ -65,7 +65,7 @@ const experience = [
     company: "Wild Blueberry Research, Dalhousie co-op",
     icon: "leaf",
     location: "Truro, NS",
-    dates: "June 2020 – Sept 2020",
+    dates: "Jun 2020 – Sep 2020",
     points: [
       "Built and maintained two websites for the research program, keeping their platform up to date with conference information.",
       "Supported day-to-day research operations: analyzing plant samples and keeping data records accurate.",
@@ -117,7 +117,7 @@ const work = [
     year: "2026",
     description:
       "The Nova Scotia Teachers Union's conference registration and management platform. In the member portal, teachers register for a conference, rank their workshop choices and pay through Stripe. If they change their registration after paying, the platform works out the price difference and charges or refunds it automatically. In the admin portal, staff set up each conference with fees, workshops, custom questions and capacity limits, or use an AI feature to build it from a template submitted by volunteers. Each conference syncs to the NSTU public website. I led the rebuild of their legacy system into the platform they use today.",
-    tech: [".NET", "C#", "Stripe", "AI"],
+    tech: [".NET", "C#", "Stripe", "OpenAI"],
     visual: { screenshot: "/images/work/nstu-conference.webp" },
     caseStudy: "https://immediac.com/our-work/nstu",
   },
@@ -313,9 +313,11 @@ function ProjectVisual({ project }) {
         borderColor: "divider",
         bgcolor: visual.flightMap ? "#0b1726" : "#ffffff",
         boxShadow: "0 24px 40px -30px rgba(42,29,27,0.45)",
-        "& .media": { transition: "transform 600ms cubic-bezier(.2,.7,.2,1)", transformOrigin: "left top" },
-        "&:hover .media": { transform: "scale(1.03)" },
-        "@media (prefers-reduced-motion: reduce)": { "& .media": { transition: "none" } },
+        ...(project.caseStudy && {
+          "& .media": { transition: "transform 600ms cubic-bezier(.2,.7,.2,1)", transformOrigin: "left top" },
+          "&:hover .media": { transform: "scale(1.03)" },
+          "@media (prefers-reduced-motion: reduce)": { "& .media": { transition: "none" } },
+        }),
       }}
     >
       <Box className="media" sx={{ height: "100%" }}>
@@ -373,7 +375,7 @@ function HeroRole({ size }) {
       <Typography sx={{ fontWeight: 600, fontSize: s.role, lineHeight: 1.3 }}>Full-stack software developer</Typography>
       <Stack direction="row" alignItems="center" sx={{ color: "text.secondary", gap: "0.3em", fontSize: s.place, mt: "0.35em" }}>
         <LocationOnOutlinedIcon sx={{ fontSize: "1.1em" }} />
-        <Typography sx={{ fontSize: "inherit" }}>Halifax, NS · Truro, NS · St. John&apos;s, NL</Typography>
+        <Typography sx={{ fontSize: "inherit" }}>Halifax, NS · Remote</Typography>
       </Stack>
     </>
   );
